@@ -1,0 +1,288 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "BODYRON",
+  "@appTitle": {"description": "App name shown on the Dashboard header"},
+  "appTagline": "BUILD YOUR BODY",
+
+  "startWorkoutEyebrow": "READY TO TRAIN?",
+  "startWorkoutHeadline": "Start Workout",
+  "startWorkoutButton": "START",
+
+  "todayWorkoutLabel": "TODAY'S WORKOUT",
+  "todayWorkoutSummary": "{muscles} · {count, plural, one{1 exercise} other{{count} exercises}} · ~{minutes} min",
+  "@todayWorkoutSummary": {
+    "placeholders": {
+      "muscles": {"type": "String"},
+      "count": {"type": "int"},
+      "minutes": {"type": "int"}
+    }
+  },
+
+  "sectionLastWorkout": "LAST WORKOUT",
+  "minutesShort": "{minutes} min",
+  "@minutesShort": {
+    "placeholders": {
+      "minutes": {"type": "int"}
+    }
+  },
+  "weightKg": "{value} kg",
+  "@weightKg": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "prCount": "{count, plural, one{1 PR} other{{count} PR}}",
+  "@prCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+
+  "sectionBodyWeight": "BODY WEIGHT",
+  "currentBodyWeightLabel": "CURRENT BODY WEIGHT",
+
+  "weeklyProgressLabel": "WEEKLY PROGRESS",
+  "weeklyProgressCount": "{done}/{goal} workouts",
+  "@weeklyProgressCount": {
+    "placeholders": {
+      "done": {"type": "int"},
+      "goal": {"type": "int"}
+    }
+  },
+
+  "navHome": "Home",
+  "navWorkout": "Workout",
+  "navProgress": "Progress",
+  "navProfile": "Profile",
+
+  "workoutScreenEyebrow": "WORKOUT",
+  "workoutScreenTitle": "New Workout",
+  "restTimerSettingsTooltip": "Rest timer settings",
+  "finishWorkoutDialogTitle": "Finish workout?",
+  "finishWorkoutDialogContent": "This saves your session and resets the workout screen.",
+  "cancel": "Cancel",
+  "finish": "Finish",
+  "workoutSavedMessage": "Workout saved",
+  "addExerciseButton": "ADD EXERCISE",
+  "finishWorkoutButton": "FINISH WORKOUT",
+
+  "emptyWorkoutTitle": "Build Your Workout",
+  "emptyWorkoutSubtitle": "Add exercises to start tracking your workout.",
+
+  "workoutTimeLabel": "WORKOUT TIME",
+
+  "removeExerciseTooltip": "Remove exercise",
+  "noSetsYetMessage": "No sets yet — add your first one.",
+  "addSetButton": "ADD SET",
+  "lastSetHint": "Last: {value} kg × {reps}",
+  "@lastSetHint": {
+    "placeholders": {
+      "value": {"type": "String"},
+      "reps": {"type": "int"}
+    }
+  },
+
+  "addExerciseSheetTitle": "Add Exercise",
+  "addYourOwnExerciseTile": "Add your own exercise",
+
+  "addCustomExerciseDialogTitle": "Add Your Own Exercise",
+  "exerciseNameHint": "Exercise name",
+  "muscleGroupOptionalLabel": "MUSCLE GROUP (OPTIONAL)",
+  "add": "Add",
+
+  "setIntensityTitle": "Set Intensity",
+  "rpeLabel": "RPE",
+  "toFailureLabel": "To Failure",
+  "rpeValue": "RPE {value}",
+  "@rpeValue": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "toFailureDescription": "This set will be marked as taken to muscular failure.",
+  "clear": "Clear",
+  "save": "Save",
+
+  "toFailureChipLabel": "TO FAILURE",
+  "addIntensityLabel": "ADD INTENSITY",
+
+  "plateCalculatorTooltip": "Plate calculator",
+  "plateCalculatorTitle": "Plate Calculator",
+  "plateCalculatorTargetWeight": "Target: {value} kg",
+  "@plateCalculatorTargetWeight": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "plateCalculatorBarLabel": "Bar: {value} kg",
+  "@plateCalculatorBarLabel": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "plateCalculatorPerSideLabel": "PER SIDE",
+  "plateCalculatorNoPlatesMessage": "The bar alone matches or exceeds this weight — no plates needed.",
+  "plateCalculatorBelowBarMessage": "Target is below the bar weight ({value} kg).",
+  "@plateCalculatorBelowBarMessage": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "plateCalculatorApproxNote": "Closest achievable with standard plates: {value} kg",
+  "@plateCalculatorApproxNote": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+
+  "defaultRestTimeTitle": "Default Rest Time",
+
+  "restCompleteLabel": "REST COMPLETE",
+  "restLabel": "REST",
+  "skipRestTooltip": "Skip rest",
+  "restTimerNotificationTitle": "Rest complete",
+  "restTimerNotificationBody": "Time for your next set.",
+
+  "muscleGroupChest": "Chest",
+  "muscleGroupBack": "Back",
+  "muscleGroupLegs": "Legs",
+  "muscleGroupShoulders": "Shoulders",
+  "muscleGroupArms": "Arms",
+  "muscleGroupAbs": "Abs",
+
+  "profileScreenTitle": "Profile",
+  "profileDeveloperSection": "DEVELOPER",
+  "proDebugToggleLabel": "PRO — Debug Only",
+  "proDebugToggleSubtitle": "Simulate Pro entitlement to test gated UI. Not shown in release builds.",
+  "proBadgeLabel": "PRO",
+
+  "proSectionTitle": "PRO",
+  "proUpgradeDescription": "Smart Progression suggestions, advanced strength charts, and plateau detection.",
+  "proUpgradeButtonLabel": "Upgrade — {price}",
+  "@proUpgradeButtonLabel": {
+    "placeholders": {
+      "price": {"type": "String"}
+    }
+  },
+  "proPurchasedTitle": "PRO unlocked",
+  "proPurchasedOnDate": "Purchased on {date}",
+  "@proPurchasedOnDate": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "proUnavailableTitle": "PRO purchase unavailable",
+  "proUnavailableSubtitle": "The store isn't set up for this yet. Please check back later.",
+
+  "purchaseErrorNetwork": "No internet connection. Check your network and try again.",
+  "purchaseErrorItemUnavailable": "This item is currently unavailable. Please try again later.",
+  "purchaseErrorCancelled": "Purchase cancelled.",
+  "purchaseErrorGeneric": "Purchase failed. Please try again.",
+
+  "exportHistorySection": "DATA",
+  "exportHistoryTitle": "Export Workout History",
+  "exportHistorySubtitle": "Share a CSV file of all completed workouts",
+  "exportHistoryEmptyHint": "Complete a workout first to export history",
+  "exportHistoryShareText": "BODYRON workout history",
+  "exportHistoryErrorMessage": "Couldn't export workout history",
+
+  "relativeToday": "Today",
+  "relativeYesterday": "Yesterday",
+  "relativeDaysAgo": "{days} days ago",
+  "@relativeDaysAgo": {
+    "placeholders": {
+      "days": {"type": "int"}
+    }
+  },
+
+  "bodyWeightEmptyTitle": "No weight logged yet",
+  "bodyWeightEmptyMessage": "Add your first weight entry",
+  "addWeightEntryButton": "ADD ENTRY",
+  "addWeightEntryDialogTitle": "Log Body Weight",
+  "weightFieldLabel": "Weight (kg)",
+  "dateFieldLabel": "Date",
+  "weightEntryInvalidMessage": "Enter a weight greater than 0",
+
+  "profileNameSection": "NAME",
+  "profileNameEmpty": "Add your name",
+  "editNameDialogTitle": "Your Name",
+  "nameFieldHint": "Enter your name",
+
+  "profileBodyWeightSection": "BODY WEIGHT",
+  "profileBodyWeightEmptyHint": "No entries yet",
+
+  "settingsSection": "SETTINGS",
+  "restDurationSettingTitle": "Default Rest Time",
+  "weightUnitSettingTitle": "Weight Unit",
+  "weightUnitComingSoonHint": "More units coming soon",
+
+  "appVersionLabel": "Version {version}",
+  "@appVersionLabel": {
+    "placeholders": {
+      "version": {"type": "String"}
+    }
+  },
+
+  "progressEmptyTitle": "No progress yet",
+  "progressEmptyMessage": "Complete a few workouts to see your progress here.",
+  "progressWeightChartTitle": "BODY WEIGHT",
+  "progressVolumeChartTitle": "WEEKLY VOLUME",
+  "progressPersonalRecordsTitle": "PERSONAL RECORDS",
+  "progressPersonalRecordsEmptyHint": "Repeat an exercise across two workouts to see a PR here",
+  "progressRecentWorkoutsTitle": "RECENT WORKOUTS",
+  "progressWorkoutDetailTitle": "Workout Details",
+  "progressSetLabel": "Set {index}",
+  "@progressSetLabel": {
+    "placeholders": {
+      "index": {"type": "int"}
+    }
+  },
+  "progressNoWeightDataHint": "Log your body weight to see a chart here",
+  "progressNoVolumeDataHint": "Finish a workout to see your weekly volume",
+
+  "weightByReps": "{weight} kg × {reps}",
+  "@weightByReps": {
+    "placeholders": {
+      "weight": {"type": "String"},
+      "reps": {"type": "int"}
+    }
+  },
+
+  "progressScreenTitle": "Progress",
+
+  "recentWorkoutSummary": "{when} · {count, plural, one{1 exercise} other{{count} exercises}} · {duration}",
+  "@recentWorkoutSummary": {
+    "placeholders": {
+      "when": {"type": "String"},
+      "count": {"type": "int"},
+      "duration": {"type": "String"}
+    }
+  },
+
+  "nextTargetLabel": "NEXT TARGET",
+  "nextTargetValue": "{weight} kg × {repsLow}–{repsHigh}",
+  "@nextTargetValue": {
+    "placeholders": {
+      "weight": {"type": "String"},
+      "repsLow": {"type": "int"},
+      "repsHigh": {"type": "int"}
+    }
+  },
+
+  "plateauBannerTitle": "Progress has plateaued",
+  "plateauBannerMessage": "Your top set hasn't improved in the last 3 sessions. Consider an exercise variation or a deload week.",
+
+  "smartProgressionTeaserTitle": "Unlock Smart Progression with PRO",
+  "smartProgressionTeaserSubtitle": "Get personalized weight and rep targets based on your history.",
+
+  "strengthProgressTitle": "STRENGTH PROGRESS",
+  "strengthProgressTeaserTitle": "Unlock Strength Charts with PRO",
+  "strengthProgressTeaserSubtitle": "See your estimated 1RM trend over time for any exercise.",
+  "strengthProgressNoDataHint": "Not enough history for this exercise yet.",
+
+  "themeSettingTitle": "Theme",
+  "themeModeLight": "Light",
+  "themeModeDark": "Dark",
+  "themeModeSystem": "System"
+}
