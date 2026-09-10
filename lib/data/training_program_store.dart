@@ -51,25 +51,36 @@ class TrainingProgramStore extends ChangeNotifier {
   /// Завершает онбординг с реальными ответами пользователя — генерирует
   /// программу ([ProgramGenerator.generate]) и персистит всё разом.
   /// Используется и обязательным гейтом для новых пользователей, и
-  /// добровольным входом "Настроить программу" для существующих.
+  /// добровольным входом "Настроить программу" для существующих (см.
+  /// [applyProgram] — тот же путь персистенции, но без квиза, для готовых
+  /// PRO-программ из [CuratedPrograms]).
   Future<void> completeOnboarding({
     required String goal,
     required int frequency,
     required String level,
   }) async {
     final program = ProgramGenerator.generate(goal: goal, frequency: frequency, level: level);
+    await applyProgram(program);
+  }
+
+  /// Делает [program] активным — та же персистенция, что и после квиза
+  /// онбординга, просто без генерации: используется для готовых PRO-
+  /// программ, выбранных на экране "Изменить программу" (см.
+  /// [CuratedPrograms]). После этого Home и Тренировка работают с ней как с
+  /// любой другой активной программой.
+  Future<void> applyProgram(TrainingProgram program) async {
     final db = DatabaseHelper.instance;
 
-    this.goal = goal;
-    this.frequency = frequency;
-    this.level = level;
+    goal = program.goal;
+    frequency = program.frequency;
+    level = program.level;
     activeProgram = program;
     onboardingCompleted = true;
 
     await db.setSetting(_activeProgramSettingKey, jsonEncode(program.toJson()));
-    await db.setSetting(_onboardingGoalSettingKey, goal);
-    await db.setSetting(_onboardingFrequencySettingKey, frequency.toString());
-    await db.setSetting(_onboardingLevelSettingKey, level);
+    await db.setSetting(_onboardingGoalSettingKey, program.goal);
+    await db.setSetting(_onboardingFrequencySettingKey, program.frequency.toString());
+    await db.setSetting(_onboardingLevelSettingKey, program.level);
     await db.setSetting(_onboardingCompletedSettingKey, '1');
 
     notifyListeners();

@@ -235,6 +235,10 @@ class _RestDayCard extends StatelessWidget {
   }
 }
 
+/// Состояние "нет активной программы" — большинство реальных пользователей
+/// сегодня (уже есть история, но программу никогда не настраивали) видят
+/// именно это. Должно быть не менее заметным, чем [_TrainingDayCard] —
+/// иначе, как показало реальное тестирование, его просто не находят.
 class _NoProgramCard extends StatelessWidget {
   final VoidCallback onSetupProgram;
 
@@ -249,38 +253,48 @@ class _NoProgramCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: colors.card,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: colors.cardBorder),
+        gradient: LinearGradient(
+          colors: [colors.accent, colors.accentDark],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.calendar_month_outlined, color: colors.textMuted, size: 26),
+          const Icon(Icons.calendar_month_outlined, color: Colors.white, size: 26),
           const SizedBox(height: 10),
           Text(
             l10n.noProgramTitle,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: Colors.white),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 6),
           Text(
             l10n.noProgramSubtitle,
-            style: TextStyle(fontSize: 13, color: colors.textMuted, height: 1.35),
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
-            height: 48,
-            child: OutlinedButton(
+            height: 50,
+            child: ElevatedButton(
               onPressed: onSetupProgram,
-              style: OutlinedButton.styleFrom(
-                foregroundColor: colors.textPrimary,
-                side: BorderSide(color: colors.cardBorder),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
               ),
-              child: Text(
-                l10n.noProgramSetupButton,
-                style: const TextStyle(fontWeight: FontWeight.w800),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    l10n.noProgramSetupButton,
+                    style: const TextStyle(fontWeight: FontWeight.w900, letterSpacing: 0.6),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(Icons.arrow_forward, size: 18),
+                ],
               ),
             ),
           ),

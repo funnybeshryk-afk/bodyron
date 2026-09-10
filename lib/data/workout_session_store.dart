@@ -154,6 +154,15 @@ class WorkoutSessionStore extends ChangeNotifier {
   /// вводит сам. Программа сама не персистится этим методом — она уже
   /// целиком лежит в `app_settings` (см. [TrainingProgramStore]).
   void applyProgramDay(TrainingProgramDay day) {
+    // Начинает day заново, а не добавляет к тому, что уже могло остаться в
+    // сессии (незавершённая вчерашняя тренировка, вручную добавленные
+    // упражнения) — иначе, например, смена программы в Профиле подмешает
+    // старые упражнения к новой, вместо того чтобы её реально применить.
+    exercises.clear();
+    currentExerciseIndex = 0;
+    _startedAt = null;
+    skipRestTimer();
+
     for (final programExercise in day.exercises) {
       ExerciseDefinition? definition;
       for (final candidate in ExerciseLibrary.builtIn) {

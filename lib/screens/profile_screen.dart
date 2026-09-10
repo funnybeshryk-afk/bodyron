@@ -6,6 +6,7 @@ import '../data/entitlement_store.dart';
 import '../data/locale_store.dart';
 import '../data/purchase_service.dart';
 import '../data/theme_store.dart';
+import '../data/training_program_store.dart';
 import '../data/user_profile_store.dart';
 import '../data/workout_session_store.dart';
 import '../l10n/app_localizations.dart';
@@ -13,6 +14,7 @@ import '../widgets/profile/app_footer.dart';
 import '../widgets/profile/body_weight_section.dart';
 import '../widgets/profile/edit_name_dialog.dart';
 import '../widgets/profile/export_history_tile.dart';
+import '../widgets/profile/my_program_section.dart';
 import '../widgets/profile/name_tile.dart';
 import '../widgets/profile/pro_badge.dart';
 import '../widgets/profile/pro_debug_toggle.dart';
@@ -26,6 +28,7 @@ class ProfileScreen extends StatelessWidget {
   final WorkoutSessionStore workoutStore;
   final BodyWeightStore bodyWeightStore;
   final UserProfileStore userProfileStore;
+  final TrainingProgramStore trainingProgramStore;
   final ThemeStore themeStore;
   final LocaleStore localeStore;
 
@@ -36,6 +39,7 @@ class ProfileScreen extends StatelessWidget {
     required this.workoutStore,
     required this.bodyWeightStore,
     required this.userProfileStore,
+    required this.trainingProgramStore,
     required this.themeStore,
     required this.localeStore,
   });
@@ -78,6 +82,14 @@ class ProfileScreen extends StatelessWidget {
                 SectionTitle(title: l10n.proSectionTitle),
                 const SizedBox(height: 14),
                 ProPurchaseSection(
+                  entitlementStore: entitlementStore,
+                  purchaseService: purchaseService,
+                ),
+                const SizedBox(height: 28),
+                SectionTitle(title: l10n.myProgramSection),
+                const SizedBox(height: 14),
+                MyProgramSection(
+                  trainingProgramStore: trainingProgramStore,
                   entitlementStore: entitlementStore,
                   purchaseService: purchaseService,
                 ),

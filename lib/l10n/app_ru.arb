@@ -222,8 +222,8 @@
   "restDayViewWorkoutButton": "ПОСМОТРЕТЬ ТРЕНИРОВКУ",
   "restDayStartEarlyButton": "Начать тренировку раньше",
 
-  "noProgramTitle": "Нет активной программы",
-  "noProgramSubtitle": "Настрой программу тренировок, и Главная будет показывать, что делать сегодня.",
+  "noProgramTitle": "Настрой свою программу тренировок за 30 секунд",
+  "noProgramSubtitle": "Дальше приложение само будет предлагать тренировку на каждый день.",
   "noProgramSetupButton": "Настроить программу",
 
   "onboardingWelcomeTitle": "Добро пожаловать в BODYRON",
@@ -259,5 +259,28 @@
   "completionSetsLabel": "ПОДХОДЫ",
   "completionNewPrBadge": "🏆 Новый PR",
   "completionMotivationLine": "Ты стал сильнее. Твой рабочий вес в упражнении «{exercise}» вырос на {delta} кг.",
-  "completionDoneButton": "ГОТОВО"
+  "completionDoneButton": "ГОТОВО",
+
+  "myProgramSection": "МОЯ ПРОГРАММА",
+  "myProgramCurrentLabel": "ТЕКУЩАЯ ПРОГРАММА",
+  "myProgramNoneLabel": "Не настроена",
+  "myProgramChangeButton": "Изменить программу",
+
+  "programPickerTitle": "Выбери программу",
+  "programPickerPersonalTitle": "Персональная (авто)",
+  "programPickerPersonalSubtitle": "Быстрый квиз из 3 вопросов — и программа готова",
+  "programPickerProSectionTitle": "PRO-ПРОГРАММЫ",
+  "programPickerAppliedMessage": "Программа обновлена",
+  "programPickerLockedHint": "Оформи PRO выше, чтобы открыть эту программу.",
+
+  "curatedProgram5x5Name": "5×5 Сила",
+  "curatedProgram5x5Description": "Базовые многосуставные упражнения, 5 подходов по 5 — для роста силы.",
+  "curatedProgramPplName": "PPL Гипертрофия",
+  "curatedProgramPplDescription": "Push/Pull/Legs с высоким объёмом на 8–12 повторений — для роста мышц.",
+  "curatedProgramUpperLowerName": "Верх/Низ Мощность",
+  "curatedProgramUpperLowerDescription": "4 дня в неделю: сила и масса в одном сплите.",
+  "curatedProgramFullBodyName": "Full Body Продвинутый",
+  "curatedProgramFullBodyDescription": "Больше упражнений за тренировку — для опытных, кто тренируется эффективно.",
+  "curatedProgramArmsName": "Руки/Плечи Специализация",
+  "curatedProgramArmsDescription": "Базовый сплит плюс отдельный день на отстающие руки и плечи."
 }

@@ -629,11 +629,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get restDayStartEarlyButton => 'Начать тренировку раньше';
 
   @override
-  String get noProgramTitle => 'Нет активной программы';
+  String get noProgramTitle => 'Настрой свою программу тренировок за 30 секунд';
 
   @override
   String get noProgramSubtitle =>
-      'Настрой программу тренировок, и Главная будет показывать, что делать сегодня.';
+      'Дальше приложение само будет предлагать тренировку на каждый день.';
 
   @override
   String get noProgramSetupButton => 'Настроить программу';
@@ -738,4 +738,71 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get completionDoneButton => 'ГОТОВО';
+
+  @override
+  String get myProgramSection => 'МОЯ ПРОГРАММА';
+
+  @override
+  String get myProgramCurrentLabel => 'ТЕКУЩАЯ ПРОГРАММА';
+
+  @override
+  String get myProgramNoneLabel => 'Не настроена';
+
+  @override
+  String get myProgramChangeButton => 'Изменить программу';
+
+  @override
+  String get programPickerTitle => 'Выбери программу';
+
+  @override
+  String get programPickerPersonalTitle => 'Персональная (авто)';
+
+  @override
+  String get programPickerPersonalSubtitle =>
+      'Быстрый квиз из 3 вопросов — и программа готова';
+
+  @override
+  String get programPickerProSectionTitle => 'PRO-ПРОГРАММЫ';
+
+  @override
+  String get programPickerAppliedMessage => 'Программа обновлена';
+
+  @override
+  String get programPickerLockedHint =>
+      'Оформи PRO выше, чтобы открыть эту программу.';
+
+  @override
+  String get curatedProgram5x5Name => '5×5 Сила';
+
+  @override
+  String get curatedProgram5x5Description =>
+      'Базовые многосуставные упражнения, 5 подходов по 5 — для роста силы.';
+
+  @override
+  String get curatedProgramPplName => 'PPL Гипертрофия';
+
+  @override
+  String get curatedProgramPplDescription =>
+      'Push/Pull/Legs с высоким объёмом на 8–12 повторений — для роста мышц.';
+
+  @override
+  String get curatedProgramUpperLowerName => 'Верх/Низ Мощность';
+
+  @override
+  String get curatedProgramUpperLowerDescription =>
+      '4 дня в неделю: сила и масса в одном сплите.';
+
+  @override
+  String get curatedProgramFullBodyName => 'Full Body Продвинутый';
+
+  @override
+  String get curatedProgramFullBodyDescription =>
+      'Больше упражнений за тренировку — для опытных, кто тренируется эффективно.';
+
+  @override
+  String get curatedProgramArmsName => 'Руки/Плечи Специализация';
+
+  @override
+  String get curatedProgramArmsDescription =>
+      'Базовый сплит плюс отдельный день на отстающие руки и плечи.';
 }

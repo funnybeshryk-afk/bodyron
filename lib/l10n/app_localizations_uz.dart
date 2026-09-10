@@ -600,11 +600,11 @@ class AppLocalizationsUz extends AppLocalizations {
       'Mashgʻulotni muddatidan oldin boshlash';
 
   @override
-  String get noProgramTitle => 'Faol dastur yoʻq';
+  String get noProgramTitle => 'Dasturingni 30 soniyada sozla';
 
   @override
   String get noProgramSubtitle =>
-      'Mashgʻulot dasturini sozlang — Bosh sahifa bugun nima qilishni koʻrsatadi.';
+      'Shundan keyin BODYRON har kuni mashgʻulotni oʻzi taklif qiladi.';
 
   @override
   String get noProgramSetupButton => 'Dasturni sozlash';
@@ -699,4 +699,71 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get completionDoneButton => 'TAYYOR';
+
+  @override
+  String get myProgramSection => 'MENING DASTURIM';
+
+  @override
+  String get myProgramCurrentLabel => 'JORIY DASTUR';
+
+  @override
+  String get myProgramNoneLabel => 'Sozlanmagan';
+
+  @override
+  String get myProgramChangeButton => 'Dasturni oʻzgartirish';
+
+  @override
+  String get programPickerTitle => 'Dastur tanlash';
+
+  @override
+  String get programPickerPersonalTitle => 'Shaxsiy (avto)';
+
+  @override
+  String get programPickerPersonalSubtitle =>
+      '3 ta savoldan iborat tezkor viktorina — va dastur tayyor';
+
+  @override
+  String get programPickerProSectionTitle => 'PRO DASTURLAR';
+
+  @override
+  String get programPickerAppliedMessage => 'Dastur yangilandi';
+
+  @override
+  String get programPickerLockedHint =>
+      'Bu dasturni ochish uchun yuqorida PRO oling.';
+
+  @override
+  String get curatedProgram5x5Name => '5×5 Kuch';
+
+  @override
+  String get curatedProgram5x5Description =>
+      'Asosiy koʻp boʻgʻimli mashqlar, 5 ta yondashuv × 5 ta takror — kuch oshirish uchun.';
+
+  @override
+  String get curatedProgramPplName => 'PPL Gipertrofiya';
+
+  @override
+  String get curatedProgramPplDescription =>
+      'Yuqori hajmli Itarish/Tortish/Oyoq, 8–12 takror — mushak oʻsishi uchun.';
+
+  @override
+  String get curatedProgramUpperLowerName => 'Yuqori/Pastki Kuch';
+
+  @override
+  String get curatedProgramUpperLowerDescription =>
+      'Haftada 4 kun — bitta splitda kuch va massa.';
+
+  @override
+  String get curatedProgramFullBodyName => 'Full Body Ilg\'or';
+
+  @override
+  String get curatedProgramFullBodyDescription =>
+      'Har mashgʻulotda koʻproq mashq — tajribali sportchilar uchun.';
+
+  @override
+  String get curatedProgramArmsName => 'Qoʻl/Yelka Ixtisoslashuvi';
+
+  @override
+  String get curatedProgramArmsDescription =>
+      'Asosiy split ustiga ortda qolgan qoʻl va yelka uchun alohida kun.';
 }

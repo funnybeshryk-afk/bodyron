@@ -614,11 +614,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restDayStartEarlyButton => 'Start workout early';
 
   @override
-  String get noProgramTitle => 'No active program';
+  String get noProgramTitle => 'Set up your program in 30 seconds';
 
   @override
   String get noProgramSubtitle =>
-      'Set up a training program and Home will show you what to do today.';
+      'After that, BODYRON will suggest your workout every day.';
 
   @override
   String get noProgramSetupButton => 'Set up a program';
@@ -719,4 +719,71 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get completionDoneButton => 'DONE';
+
+  @override
+  String get myProgramSection => 'MY PROGRAM';
+
+  @override
+  String get myProgramCurrentLabel => 'CURRENT PROGRAM';
+
+  @override
+  String get myProgramNoneLabel => 'Not set up';
+
+  @override
+  String get myProgramChangeButton => 'Change program';
+
+  @override
+  String get programPickerTitle => 'Choose a program';
+
+  @override
+  String get programPickerPersonalTitle => 'Personal (auto)';
+
+  @override
+  String get programPickerPersonalSubtitle =>
+      'A quick 3-question quiz, and it\'s ready';
+
+  @override
+  String get programPickerProSectionTitle => 'PRO PROGRAMS';
+
+  @override
+  String get programPickerAppliedMessage => 'Program updated';
+
+  @override
+  String get programPickerLockedHint =>
+      'Upgrade to PRO above to unlock this program.';
+
+  @override
+  String get curatedProgram5x5Name => '5×5 Strength';
+
+  @override
+  String get curatedProgram5x5Description =>
+      'Compound lifts, 5 sets of 5 — for lifters focused on building raw strength.';
+
+  @override
+  String get curatedProgramPplName => 'PPL Hypertrophy';
+
+  @override
+  String get curatedProgramPplDescription =>
+      'Push/Pull/Legs with higher volume at 8–12 reps — for building muscle size.';
+
+  @override
+  String get curatedProgramUpperLowerName => 'Upper/Lower Power';
+
+  @override
+  String get curatedProgramUpperLowerDescription =>
+      '4 days a week mixing strength and hypertrophy rep ranges in one split.';
+
+  @override
+  String get curatedProgramFullBodyName => 'Advanced Full Body';
+
+  @override
+  String get curatedProgramFullBodyDescription =>
+      'More exercises per session — for experienced lifters who train efficiently.';
+
+  @override
+  String get curatedProgramArmsName => 'Arms/Shoulders Specialization';
+
+  @override
+  String get curatedProgramArmsDescription =>
+      'A base split plus a dedicated day for lagging arms and shoulders.';
 }

@@ -1159,13 +1159,13 @@ abstract class AppLocalizations {
   /// No description provided for @noProgramTitle.
   ///
   /// In en, this message translates to:
-  /// **'No active program'**
+  /// **'Set up your program in 30 seconds'**
   String get noProgramTitle;
 
   /// No description provided for @noProgramSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Set up a training program and Home will show you what to do today.'**
+  /// **'After that, BODYRON will suggest your workout every day.'**
   String get noProgramSubtitle;
 
   /// No description provided for @noProgramSetupButton.
@@ -1347,6 +1347,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'DONE'**
   String get completionDoneButton;
+
+  /// No description provided for @myProgramSection.
+  ///
+  /// In en, this message translates to:
+  /// **'MY PROGRAM'**
+  String get myProgramSection;
+
+  /// No description provided for @myProgramCurrentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'CURRENT PROGRAM'**
+  String get myProgramCurrentLabel;
+
+  /// No description provided for @myProgramNoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Not set up'**
+  String get myProgramNoneLabel;
+
+  /// No description provided for @myProgramChangeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Change program'**
+  String get myProgramChangeButton;
+
+  /// No description provided for @programPickerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a program'**
+  String get programPickerTitle;
+
+  /// No description provided for @programPickerPersonalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal (auto)'**
+  String get programPickerPersonalTitle;
+
+  /// No description provided for @programPickerPersonalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A quick 3-question quiz, and it\'s ready'**
+  String get programPickerPersonalSubtitle;
+
+  /// No description provided for @programPickerProSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PRO PROGRAMS'**
+  String get programPickerProSectionTitle;
+
+  /// No description provided for @programPickerAppliedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Program updated'**
+  String get programPickerAppliedMessage;
+
+  /// No description provided for @programPickerLockedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to PRO above to unlock this program.'**
+  String get programPickerLockedHint;
+
+  /// No description provided for @curatedProgram5x5Name.
+  ///
+  /// In en, this message translates to:
+  /// **'5×5 Strength'**
+  String get curatedProgram5x5Name;
+
+  /// No description provided for @curatedProgram5x5Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Compound lifts, 5 sets of 5 — for lifters focused on building raw strength.'**
+  String get curatedProgram5x5Description;
+
+  /// No description provided for @curatedProgramPplName.
+  ///
+  /// In en, this message translates to:
+  /// **'PPL Hypertrophy'**
+  String get curatedProgramPplName;
+
+  /// No description provided for @curatedProgramPplDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Push/Pull/Legs with higher volume at 8–12 reps — for building muscle size.'**
+  String get curatedProgramPplDescription;
+
+  /// No description provided for @curatedProgramUpperLowerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Upper/Lower Power'**
+  String get curatedProgramUpperLowerName;
+
+  /// No description provided for @curatedProgramUpperLowerDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'4 days a week mixing strength and hypertrophy rep ranges in one split.'**
+  String get curatedProgramUpperLowerDescription;
+
+  /// No description provided for @curatedProgramFullBodyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Full Body'**
+  String get curatedProgramFullBodyName;
+
+  /// No description provided for @curatedProgramFullBodyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'More exercises per session — for experienced lifters who train efficiently.'**
+  String get curatedProgramFullBodyDescription;
+
+  /// No description provided for @curatedProgramArmsName.
+  ///
+  /// In en, this message translates to:
+  /// **'Arms/Shoulders Specialization'**
+  String get curatedProgramArmsName;
+
+  /// No description provided for @curatedProgramArmsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A base split plus a dedicated day for lagging arms and shoulders.'**
+  String get curatedProgramArmsDescription;
 }
 
 class _AppLocalizationsDelegate

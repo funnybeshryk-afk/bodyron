@@ -71,6 +71,7 @@ class _MainScreenState extends State<MainScreen> {
       workoutStore: workoutStore,
       bodyWeightStore: bodyWeightStore,
       userProfileStore: userProfileStore,
+      trainingProgramStore: widget.trainingProgramStore,
       themeStore: widget.themeStore,
       localeStore: widget.localeStore,
     ),

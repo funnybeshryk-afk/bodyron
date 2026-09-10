@@ -333,8 +333,8 @@
   "restDayViewWorkoutButton": "VIEW WORKOUT",
   "restDayStartEarlyButton": "Start workout early",
 
-  "noProgramTitle": "No active program",
-  "noProgramSubtitle": "Set up a training program and Home will show you what to do today.",
+  "noProgramTitle": "Set up your program in 30 seconds",
+  "noProgramSubtitle": "After that, BODYRON will suggest your workout every day.",
   "noProgramSetupButton": "Set up a program",
 
   "onboardingWelcomeTitle": "Welcome to BODYRON",
@@ -381,5 +381,28 @@
       "delta": {"type": "String"}
     }
   },
-  "completionDoneButton": "DONE"
+  "completionDoneButton": "DONE",
+
+  "myProgramSection": "MY PROGRAM",
+  "myProgramCurrentLabel": "CURRENT PROGRAM",
+  "myProgramNoneLabel": "Not set up",
+  "myProgramChangeButton": "Change program",
+
+  "programPickerTitle": "Choose a program",
+  "programPickerPersonalTitle": "Personal (auto)",
+  "programPickerPersonalSubtitle": "A quick 3-question quiz, and it's ready",
+  "programPickerProSectionTitle": "PRO PROGRAMS",
+  "programPickerAppliedMessage": "Program updated",
+  "programPickerLockedHint": "Upgrade to PRO above to unlock this program.",
+
+  "curatedProgram5x5Name": "5×5 Strength",
+  "curatedProgram5x5Description": "Compound lifts, 5 sets of 5 — for lifters focused on building raw strength.",
+  "curatedProgramPplName": "PPL Hypertrophy",
+  "curatedProgramPplDescription": "Push/Pull/Legs with higher volume at 8–12 reps — for building muscle size.",
+  "curatedProgramUpperLowerName": "Upper/Lower Power",
+  "curatedProgramUpperLowerDescription": "4 days a week mixing strength and hypertrophy rep ranges in one split.",
+  "curatedProgramFullBodyName": "Advanced Full Body",
+  "curatedProgramFullBodyDescription": "More exercises per session — for experienced lifters who train efficiently.",
+  "curatedProgramArmsName": "Arms/Shoulders Specialization",
+  "curatedProgramArmsDescription": "A base split plus a dedicated day for lagging arms and shoulders."
 }

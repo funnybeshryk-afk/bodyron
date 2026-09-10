@@ -222,8 +222,8 @@
   "restDayViewWorkoutButton": "MASHGʻULOTNI KOʻRISH",
   "restDayStartEarlyButton": "Mashgʻulotni muddatidan oldin boshlash",
 
-  "noProgramTitle": "Faol dastur yoʻq",
-  "noProgramSubtitle": "Mashgʻulot dasturini sozlang — Bosh sahifa bugun nima qilishni koʻrsatadi.",
+  "noProgramTitle": "Dasturingni 30 soniyada sozla",
+  "noProgramSubtitle": "Shundan keyin BODYRON har kuni mashgʻulotni oʻzi taklif qiladi.",
   "noProgramSetupButton": "Dasturni sozlash",
 
   "onboardingWelcomeTitle": "BODYRONga xush kelibsiz",
@@ -259,5 +259,28 @@
   "completionSetsLabel": "YONDASHUVLAR",
   "completionNewPrBadge": "🏆 Yangi PR",
   "completionMotivationLine": "Sen kuchliroq boʻlding. {exercise} mashqida ishchi vazning {delta} kg oshdi.",
-  "completionDoneButton": "TAYYOR"
+  "completionDoneButton": "TAYYOR",
+
+  "myProgramSection": "MENING DASTURIM",
+  "myProgramCurrentLabel": "JORIY DASTUR",
+  "myProgramNoneLabel": "Sozlanmagan",
+  "myProgramChangeButton": "Dasturni oʻzgartirish",
+
+  "programPickerTitle": "Dastur tanlash",
+  "programPickerPersonalTitle": "Shaxsiy (avto)",
+  "programPickerPersonalSubtitle": "3 ta savoldan iborat tezkor viktorina — va dastur tayyor",
+  "programPickerProSectionTitle": "PRO DASTURLAR",
+  "programPickerAppliedMessage": "Dastur yangilandi",
+  "programPickerLockedHint": "Bu dasturni ochish uchun yuqorida PRO oling.",
+
+  "curatedProgram5x5Name": "5×5 Kuch",
+  "curatedProgram5x5Description": "Asosiy koʻp boʻgʻimli mashqlar, 5 ta yondashuv × 5 ta takror — kuch oshirish uchun.",
+  "curatedProgramPplName": "PPL Gipertrofiya",
+  "curatedProgramPplDescription": "Yuqori hajmli Itarish/Tortish/Oyoq, 8–12 takror — mushak oʻsishi uchun.",
+  "curatedProgramUpperLowerName": "Yuqori/Pastki Kuch",
+  "curatedProgramUpperLowerDescription": "Haftada 4 kun — bitta splitda kuch va massa.",
+  "curatedProgramFullBodyName": "Full Body Ilg'or",
+  "curatedProgramFullBodyDescription": "Har mashgʻulotda koʻproq mashq — tajribali sportchilar uchun.",
+  "curatedProgramArmsName": "Qoʻl/Yelka Ixtisoslashuvi",
+  "curatedProgramArmsDescription": "Asosiy split ustiga ortda qolgan qoʻl va yelka uchun alohida kun."
 }

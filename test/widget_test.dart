@@ -30,9 +30,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('BODYRON'), findsOneWidget);
-    // With no active program, Home shows the soft setup state instead of
+    // With no active program, Home shows a prominent setup card instead of
     // the old mock card — see TodayWorkoutCard's no-program state.
-    expect(find.text('No active program'), findsOneWidget);
+    expect(find.text('Set up your program in 30 seconds'), findsOneWidget);
     expect(find.byIcon(Icons.home_rounded), findsOneWidget);
   });
 }
