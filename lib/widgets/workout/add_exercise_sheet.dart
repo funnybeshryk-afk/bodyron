@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../data/exercise_library.dart';
 import '../../l10n/app_localizations.dart';
+import '../../l10n/exercise_content_l10n.dart';
 import '../../l10n/muscle_group_l10n.dart';
 import '../../models/exercise_definition.dart';
 import '../../data/workout_session_store.dart';
 import '../../theme/app_palette.dart';
+import '../exercise/exercise_technique_sheet.dart';
 import 'add_custom_exercise_dialog.dart';
 
 /// Открывает bottom sheet для выбора группы мышц и упражнения —
@@ -155,15 +157,32 @@ class _AddExerciseSheetContentState extends State<_AddExerciseSheetContent> {
                             ),
                           ),
                           title: Text(
-                            exercise.name,
+                            exercise.displayName(context),
                             style: const TextStyle(fontWeight: FontWeight.w700),
                           ),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.add_circle_outline),
-                            onPressed: () {
-                              widget.onExerciseSelected(exercise);
-                              Navigator.pop(context);
-                            },
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              // Только у встроенных упражнений есть советы по
+                              // технике — у пользовательских showExerciseTechniqueSheet
+                              // просто нечего показать.
+                              if (exercise.tips.isNotEmpty)
+                                IconButton(
+                                  icon: Icon(Icons.info_outline, color: colors.textMuted),
+                                  tooltip: l10n.exerciseTechniqueTooltip,
+                                  onPressed: () => showExerciseTechniqueSheet(
+                                    context: context,
+                                    exercise: exercise,
+                                  ),
+                                ),
+                              IconButton(
+                                icon: const Icon(Icons.add_circle_outline),
+                                onPressed: () {
+                                  widget.onExerciseSelected(exercise);
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
                           ),
                         );
                       },

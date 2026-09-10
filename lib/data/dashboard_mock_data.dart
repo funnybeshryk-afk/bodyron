@@ -1,19 +1,6 @@
-/// Заглушки данных для дашборда.
-/// Позже будут заменены выборками из [DatabaseHelper].
-class TodayWorkoutPreview {
-  final String name;
-  final List<String> muscleGroups;
-  final int exerciseCount;
-  final int estimatedMinutes;
-
-  const TodayWorkoutPreview({
-    required this.name,
-    required this.muscleGroups,
-    required this.exerciseCount,
-    required this.estimatedMinutes,
-  });
-}
-
+/// Заглушка мока последней тренировки — показывается только пока у
+/// пользователя нет реальной истории (см. [DashboardScreen]). "Тренировка
+/// на сегодня" больше не мок — она читает [TrainingProgramStore].
 class LastWorkoutSummary {
   final String name;
   final String whenLabel;
@@ -48,13 +35,6 @@ class WeeklyProgressStat {
 
 class DashboardMockData {
   DashboardMockData._();
-
-  static const todayWorkout = TodayWorkoutPreview(
-    name: 'Push Day',
-    muscleGroups: ['Chest', 'Shoulders', 'Triceps'],
-    exerciseCount: 5,
-    estimatedMinutes: 55,
-  );
 
   static const lastWorkout = LastWorkoutSummary(
     name: 'Pull Day',

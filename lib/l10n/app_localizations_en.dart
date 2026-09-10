@@ -119,6 +119,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get finishWorkoutButton => 'FINISH WORKOUT';
 
   @override
+  String workoutExerciseProgressLabel(int current, int total) {
+    return 'EXERCISE $current OF $total';
+  }
+
+  @override
+  String get workoutNextExerciseButton => 'START NEXT EXERCISE';
+
+  @override
+  String get workoutAllDoneTitle => 'All exercises done';
+
+  @override
   String get emptyWorkoutTitle => 'Build Your Workout';
 
   @override
@@ -141,6 +152,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String lastSetHint(String value, int reps) {
     return 'Last: $value kg × $reps';
   }
+
+  @override
+  String get setDoneButton => '✓ DONE';
+
+  @override
+  String get setDoneFeedback => '✓ Set complete';
 
   @override
   String get addExerciseSheetTitle => 'Add Exercise';
@@ -188,7 +205,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toFailureChipLabel => 'TO FAILURE';
 
   @override
-  String get addIntensityLabel => 'ADD INTENSITY';
+  String get addIntensityLabel => 'EDIT SET';
 
   @override
   String get plateCalculatorTooltip => 'Plate calculator';
@@ -234,6 +251,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get skipRestTooltip => 'Skip rest';
+
+  @override
+  String get restSkipButton => 'Skip';
 
   @override
   String get restTimerNotificationTitle => 'Rest complete';
@@ -508,4 +528,195 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get themeModeSystem => 'System';
+
+  @override
+  String get languageSettingTitle => 'Language';
+
+  @override
+  String get weekdayMonShort => 'M';
+
+  @override
+  String get weekdayTueShort => 'T';
+
+  @override
+  String get weekdayWedShort => 'W';
+
+  @override
+  String get weekdayThuShort => 'T';
+
+  @override
+  String get weekdayFriShort => 'F';
+
+  @override
+  String get weekdaySatShort => 'S';
+
+  @override
+  String get weekdaySunShort => 'S';
+
+  @override
+  String get weekdayMonFull => 'Monday';
+
+  @override
+  String get weekdayTueFull => 'Tuesday';
+
+  @override
+  String get weekdayWedFull => 'Wednesday';
+
+  @override
+  String get weekdayThuFull => 'Thursday';
+
+  @override
+  String get weekdayFriFull => 'Friday';
+
+  @override
+  String get weekdaySatFull => 'Saturday';
+
+  @override
+  String get weekdaySunFull => 'Sunday';
+
+  @override
+  String get exerciseTechniqueTooltip => 'Exercise technique';
+
+  @override
+  String get exerciseTipsTitle => 'TECHNIQUE TIPS';
+
+  @override
+  String get exerciseCommonMistakeTitle => 'COMMON MISTAKE';
+
+  @override
+  String get learnCardTitle => 'Learn the Basics';
+
+  @override
+  String get learnCardSubtitle => 'Tips on progression, rest, RPE and more';
+
+  @override
+  String get trainingArticlesScreenEyebrow => 'LEARN';
+
+  @override
+  String get trainingArticlesScreenTitle => 'Training Articles';
+
+  @override
+  String get todayWorkoutStartButton => 'START';
+
+  @override
+  String get restDayTitle => 'Rest day 😌';
+
+  @override
+  String get restDaySubtitle => 'You\'ve already completed today\'s plan.';
+
+  @override
+  String get restDayNextWorkoutLabel => 'Next workout';
+
+  @override
+  String get restDayViewWorkoutButton => 'VIEW WORKOUT';
+
+  @override
+  String get restDayStartEarlyButton => 'Start workout early';
+
+  @override
+  String get noProgramTitle => 'No active program';
+
+  @override
+  String get noProgramSubtitle =>
+      'Set up a training program and Home will show you what to do today.';
+
+  @override
+  String get noProgramSetupButton => 'Set up a program';
+
+  @override
+  String get onboardingWelcomeTitle => 'Welcome to BODYRON';
+
+  @override
+  String get onboardingWelcomeSubtitle => 'Train. Track. Get stronger.';
+
+  @override
+  String get onboardingStartButton => 'GET STARTED';
+
+  @override
+  String get onboardingGoalTitle => 'What\'s your goal?';
+
+  @override
+  String get onboardingGoalMuscleGain => 'Build muscle';
+
+  @override
+  String get onboardingGoalStrength => 'Get stronger';
+
+  @override
+  String get onboardingGoalWeightLoss => 'Lose weight';
+
+  @override
+  String get onboardingGoalMaintenance => 'Stay in shape';
+
+  @override
+  String get onboardingContinueButton => 'CONTINUE';
+
+  @override
+  String get onboardingFrequencyTitle => 'How many times a week do you train?';
+
+  @override
+  String onboardingFrequencyOptionLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '${count}x a week',
+      one: '${count}x a week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get onboardingLevelTitle => 'What\'s your experience level?';
+
+  @override
+  String get onboardingLevelBeginner => 'Beginner';
+
+  @override
+  String get onboardingLevelBeginnerHint => 'Under 6 months';
+
+  @override
+  String get onboardingLevelIntermediate => 'Intermediate';
+
+  @override
+  String get onboardingLevelIntermediateHint => '6 months – 2 years';
+
+  @override
+  String get onboardingLevelAdvanced => 'Advanced';
+
+  @override
+  String get onboardingLevelAdvancedHint => '2+ years';
+
+  @override
+  String get onboardingReadyTitle => 'Your program is ready';
+
+  @override
+  String get onboardingReadyRestDayLabel => 'Rest';
+
+  @override
+  String get onboardingReadyStartButton => 'START FIRST WORKOUT';
+
+  @override
+  String get completionTitle => 'WORKOUT COMPLETE 🔥';
+
+  @override
+  String get completionSubtitle => 'Great work!';
+
+  @override
+  String get completionDurationLabel => 'TIME';
+
+  @override
+  String get completionVolumeLabel => 'VOLUME';
+
+  @override
+  String get completionSetsLabel => 'SETS';
+
+  @override
+  String get completionNewPrBadge => '🏆 New PR';
+
+  @override
+  String completionMotivationLine(String exercise, String delta) {
+    return 'You\'re getting stronger. Your $exercise working weight is up $delta kg.';
+  }
+
+  @override
+  String get completionDoneButton => 'DONE';
 }

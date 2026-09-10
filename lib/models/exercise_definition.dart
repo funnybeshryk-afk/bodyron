@@ -5,10 +5,19 @@ class ExerciseDefinition {
   final String muscleGroup;
   final bool isCustom;
 
+  /// Короткие советы по технике (2-4 шт) и частая ошибка — заполнены только
+  /// для встроенной библиотеки ([ExerciseLibrary]); у пользовательских
+  /// упражнений всегда пусто, так как это статический контент приложения,
+  /// а не то, что вводит пользователь. Ничего из этого не сохраняется в БД.
+  final List<String> tips;
+  final String commonMistake;
+
   const ExerciseDefinition({
     required this.name,
     required this.muscleGroup,
     this.isCustom = false,
+    this.tips = const [],
+    this.commonMistake = '',
   });
 
   /// Только пользовательские упражнения сохраняются в БД — встроенная

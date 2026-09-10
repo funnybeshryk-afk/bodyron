@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/workout_session_store.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/relative_date_l10n.dart';
+import '../../l10n/workout_name_l10n.dart';
 import '../../theme/app_palette.dart';
 import 'workout_detail_sheet.dart';
 
@@ -45,7 +46,7 @@ class RecentWorkoutsSection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            workout.name,
+                            workout.name.displayWorkoutName(context),
                             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
                           ),
                           const SizedBox(height: 3),

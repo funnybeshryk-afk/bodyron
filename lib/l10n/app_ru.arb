@@ -1,0 +1,263 @@
+{
+  "@@locale": "ru",
+
+  "appTitle": "BODYRON",
+  "appTagline": "СТРОЙ СВОЁ ТЕЛО",
+
+  "startWorkoutEyebrow": "ГОТОВ ТРЕНИРОВАТЬСЯ?",
+  "startWorkoutHeadline": "Начать тренировку",
+  "startWorkoutButton": "НАЧАТЬ",
+
+  "todayWorkoutLabel": "ТРЕНИРОВКА НА СЕГОДНЯ",
+  "todayWorkoutSummary": "{muscles} · {count, plural, one{1 упражнение} few{{count} упражнения} many{{count} упражнений} other{{count} упражнения}} · ~{minutes} мин",
+
+  "sectionLastWorkout": "ПОСЛЕДНЯЯ ТРЕНИРОВКА",
+  "minutesShort": "{minutes} мин",
+  "weightKg": "{value} кг",
+  "prCount": "{count, plural, one{1 PR} other{{count} PR}}",
+
+  "sectionBodyWeight": "ВЕС ТЕЛА",
+  "currentBodyWeightLabel": "ТЕКУЩИЙ ВЕС ТЕЛА",
+
+  "weeklyProgressLabel": "ПРОГРЕСС ЗА НЕДЕЛЮ",
+  "weeklyProgressCount": "{done}/{goal} тренировок",
+
+  "navHome": "Главная",
+  "navWorkout": "Тренировка",
+  "navProgress": "Прогресс",
+  "navProfile": "Профиль",
+
+  "workoutScreenEyebrow": "ТРЕНИРОВКА",
+  "workoutScreenTitle": "Новая тренировка",
+  "restTimerSettingsTooltip": "Настройки таймера отдыха",
+  "finishWorkoutDialogTitle": "Завершить тренировку?",
+  "finishWorkoutDialogContent": "Сессия сохранится, а экран тренировки сбросится.",
+  "cancel": "Отмена",
+  "finish": "Завершить",
+  "workoutSavedMessage": "Тренировка сохранена",
+  "addExerciseButton": "ДОБАВИТЬ УПРАЖНЕНИЕ",
+  "finishWorkoutButton": "ЗАВЕРШИТЬ ТРЕНИРОВКУ",
+  "workoutExerciseProgressLabel": "УПРАЖНЕНИЕ {current} ИЗ {total}",
+  "workoutNextExerciseButton": "НАЧАТЬ УПРАЖНЕНИЕ",
+  "workoutAllDoneTitle": "Все упражнения выполнены",
+
+  "emptyWorkoutTitle": "Составь тренировку",
+  "emptyWorkoutSubtitle": "Добавь упражнения, чтобы начать вести тренировку.",
+
+  "workoutTimeLabel": "ВРЕМЯ ТРЕНИРОВКИ",
+
+  "removeExerciseTooltip": "Удалить упражнение",
+  "noSetsYetMessage": "Подходов пока нет — добавь первый.",
+  "addSetButton": "ДОБАВИТЬ ПОДХОД",
+  "lastSetHint": "Прошлый раз: {value} кг × {reps}",
+  "setDoneButton": "✓ ГОТОВО",
+  "setDoneFeedback": "✓ Подход выполнен",
+
+  "addExerciseSheetTitle": "Добавить упражнение",
+  "addYourOwnExerciseTile": "Добавить своё упражнение",
+
+  "addCustomExerciseDialogTitle": "Добавить своё упражнение",
+  "exerciseNameHint": "Название упражнения",
+  "muscleGroupOptionalLabel": "ГРУППА МЫШЦ (НЕОБЯЗАТЕЛЬНО)",
+  "add": "Добавить",
+
+  "setIntensityTitle": "Интенсивность подхода",
+  "rpeLabel": "RPE",
+  "toFailureLabel": "До отказа",
+  "rpeValue": "RPE {value}",
+  "toFailureDescription": "Этот подход будет отмечен как выполненный до мышечного отказа.",
+  "clear": "Сбросить",
+  "save": "Сохранить",
+
+  "toFailureChipLabel": "ДО ОТКАЗА",
+  "addIntensityLabel": "ИЗМЕНИТЬ ПОДХОД",
+
+  "plateCalculatorTooltip": "Калькулятор блинов",
+  "plateCalculatorTitle": "Калькулятор блинов",
+  "plateCalculatorTargetWeight": "Цель: {value} кг",
+  "plateCalculatorBarLabel": "Гриф: {value} кг",
+  "plateCalculatorPerSideLabel": "НА КАЖДУЮ СТОРОНУ",
+  "plateCalculatorNoPlatesMessage": "Одного грифа достаточно или больше — блины не нужны.",
+  "plateCalculatorBelowBarMessage": "Цель меньше веса грифа ({value} кг).",
+  "plateCalculatorApproxNote": "Ближайший доступный вес со стандартными блинами: {value} кг",
+
+  "defaultRestTimeTitle": "Время отдыха по умолчанию",
+
+  "restCompleteLabel": "ОТДЫХ ЗАВЕРШЁН",
+  "restLabel": "ОТДЫХ",
+  "skipRestTooltip": "Пропустить отдых",
+  "restSkipButton": "Пропустить",
+  "restTimerNotificationTitle": "Отдых окончен",
+  "restTimerNotificationBody": "Пора выполнять следующий подход.",
+
+  "muscleGroupChest": "Грудь",
+  "muscleGroupBack": "Спина",
+  "muscleGroupLegs": "Ноги",
+  "muscleGroupShoulders": "Плечи",
+  "muscleGroupArms": "Руки",
+  "muscleGroupAbs": "Пресс",
+
+  "profileScreenTitle": "Профиль",
+  "profileDeveloperSection": "РАЗРАБОТЧИК",
+  "proDebugToggleLabel": "PRO — только для отладки",
+  "proDebugToggleSubtitle": "Имитирует PRO-доступ для проверки интерфейса. Не отображается в релизных сборках.",
+  "proBadgeLabel": "PRO",
+
+  "proSectionTitle": "PRO",
+  "proUpgradeDescription": "Умные рекомендации по прогрессии, продвинутые графики силы и определение плато.",
+  "proUpgradeButtonLabel": "Оформить — {price}",
+  "proPurchasedTitle": "PRO активирован",
+  "proPurchasedOnDate": "Куплено {date}",
+  "proUnavailableTitle": "Покупка PRO недоступна",
+  "proUnavailableSubtitle": "Магазин пока не настроен. Загляни сюда позже.",
+
+  "purchaseErrorNetwork": "Нет подключения к интернету. Проверь сеть и попробуй снова.",
+  "purchaseErrorItemUnavailable": "Этот товар сейчас недоступен. Попробуй позже.",
+  "purchaseErrorCancelled": "Покупка отменена.",
+  "purchaseErrorGeneric": "Не удалось совершить покупку. Попробуй ещё раз.",
+
+  "exportHistorySection": "ДАННЫЕ",
+  "exportHistoryTitle": "Экспорт истории тренировок",
+  "exportHistorySubtitle": "Поделиться CSV-файлом со всеми завершёнными тренировками",
+  "exportHistoryEmptyHint": "Сначала заверши тренировку, чтобы экспортировать историю",
+  "exportHistoryShareText": "История тренировок BODYRON",
+  "exportHistoryErrorMessage": "Не удалось экспортировать историю тренировок",
+
+  "relativeToday": "Сегодня",
+  "relativeYesterday": "Вчера",
+  "relativeDaysAgo": "{days, plural, one{{days} день назад} few{{days} дня назад} many{{days} дней назад} other{{days} дня назад}}",
+
+  "bodyWeightEmptyTitle": "Вес ещё не записан",
+  "bodyWeightEmptyMessage": "Добавь первую запись веса",
+  "addWeightEntryButton": "ДОБАВИТЬ ЗАПИСЬ",
+  "addWeightEntryDialogTitle": "Запись веса тела",
+  "weightFieldLabel": "Вес (кг)",
+  "dateFieldLabel": "Дата",
+  "weightEntryInvalidMessage": "Введи вес больше 0",
+
+  "profileNameSection": "ИМЯ",
+  "profileNameEmpty": "Добавь своё имя",
+  "editNameDialogTitle": "Твоё имя",
+  "nameFieldHint": "Введи имя",
+
+  "profileBodyWeightSection": "ВЕС ТЕЛА",
+  "profileBodyWeightEmptyHint": "Записей пока нет",
+
+  "settingsSection": "НАСТРОЙКИ",
+  "restDurationSettingTitle": "Время отдыха по умолчанию",
+  "weightUnitSettingTitle": "Единица веса",
+  "weightUnitComingSoonHint": "Другие единицы появятся позже",
+
+  "appVersionLabel": "Версия {version}",
+
+  "progressEmptyTitle": "Прогресса пока нет",
+  "progressEmptyMessage": "Заверши несколько тренировок, чтобы увидеть прогресс здесь.",
+  "progressWeightChartTitle": "ВЕС ТЕЛА",
+  "progressVolumeChartTitle": "ОБЪЁМ ЗА НЕДЕЛЮ",
+  "progressPersonalRecordsTitle": "ЛИЧНЫЕ РЕКОРДЫ",
+  "progressPersonalRecordsEmptyHint": "Повтори упражнение в двух тренировках, чтобы увидеть здесь PR",
+  "progressRecentWorkoutsTitle": "ПОСЛЕДНИЕ ТРЕНИРОВКИ",
+  "progressWorkoutDetailTitle": "Детали тренировки",
+  "progressSetLabel": "Подход {index}",
+  "progressNoWeightDataHint": "Запиши вес тела, чтобы увидеть график здесь",
+  "progressNoVolumeDataHint": "Заверши тренировку, чтобы увидеть недельный объём",
+
+  "weightByReps": "{weight} кг × {reps}",
+
+  "progressScreenTitle": "Прогресс",
+
+  "recentWorkoutSummary": "{when} · {count, plural, one{1 упражнение} few{{count} упражнения} many{{count} упражнений} other{{count} упражнения}} · {duration}",
+
+  "nextTargetLabel": "СЛЕДУЮЩАЯ ЦЕЛЬ",
+  "nextTargetValue": "{weight} кг × {repsLow}–{repsHigh}",
+
+  "plateauBannerTitle": "Прогресс остановился",
+  "plateauBannerMessage": "Твой лучший подход не улучшался последние 3 тренировки. Попробуй вариацию упражнения или разгрузочную неделю.",
+
+  "smartProgressionTeaserTitle": "Открой Smart Progression с PRO",
+  "smartProgressionTeaserSubtitle": "Получай персональные цели по весу и повторениям на основе своей истории.",
+
+  "strengthProgressTitle": "ПРОГРЕСС СИЛЫ",
+  "strengthProgressTeaserTitle": "Открой графики силы с PRO",
+  "strengthProgressTeaserSubtitle": "Отслеживай динамику расчётного 1ПМ по любому упражнению со временем.",
+  "strengthProgressNoDataHint": "Пока недостаточно истории по этому упражнению.",
+
+  "themeSettingTitle": "Тема",
+  "themeModeLight": "Светлая",
+  "themeModeDark": "Тёмная",
+  "themeModeSystem": "Системная",
+
+  "languageSettingTitle": "Язык",
+
+  "weekdayMonShort": "Пн",
+  "weekdayTueShort": "Вт",
+  "weekdayWedShort": "Ср",
+  "weekdayThuShort": "Чт",
+  "weekdayFriShort": "Пт",
+  "weekdaySatShort": "Сб",
+  "weekdaySunShort": "Вс",
+
+  "weekdayMonFull": "Понедельник",
+  "weekdayTueFull": "Вторник",
+  "weekdayWedFull": "Среда",
+  "weekdayThuFull": "Четверг",
+  "weekdayFriFull": "Пятница",
+  "weekdaySatFull": "Суббота",
+  "weekdaySunFull": "Воскресенье",
+
+  "exerciseTechniqueTooltip": "Техника упражнения",
+  "exerciseTipsTitle": "СОВЕТЫ ПО ТЕХНИКЕ",
+  "exerciseCommonMistakeTitle": "ЧАСТАЯ ОШИБКА",
+
+  "learnCardTitle": "Изучи основы",
+  "learnCardSubtitle": "Советы по прогрессии, отдыху, RPE и не только",
+  "trainingArticlesScreenEyebrow": "ОБУЧЕНИЕ",
+  "trainingArticlesScreenTitle": "Обучающие статьи",
+
+  "todayWorkoutStartButton": "НАЧАТЬ",
+
+  "restDayTitle": "Сегодня отдых 😌",
+  "restDaySubtitle": "Ты уже выполнил план на сегодня.",
+  "restDayNextWorkoutLabel": "Следующая тренировка",
+  "restDayViewWorkoutButton": "ПОСМОТРЕТЬ ТРЕНИРОВКУ",
+  "restDayStartEarlyButton": "Начать тренировку раньше",
+
+  "noProgramTitle": "Нет активной программы",
+  "noProgramSubtitle": "Настрой программу тренировок, и Главная будет показывать, что делать сегодня.",
+  "noProgramSetupButton": "Настроить программу",
+
+  "onboardingWelcomeTitle": "Добро пожаловать в BODYRON",
+  "onboardingWelcomeSubtitle": "Тренируйся. Записывай. Становись сильнее.",
+  "onboardingStartButton": "НАЧАТЬ",
+
+  "onboardingGoalTitle": "Какая у тебя цель?",
+  "onboardingGoalMuscleGain": "Набрать мышечную массу",
+  "onboardingGoalStrength": "Стать сильнее",
+  "onboardingGoalWeightLoss": "Снизить вес",
+  "onboardingGoalMaintenance": "Поддерживать форму",
+  "onboardingContinueButton": "ПРОДОЛЖИТЬ",
+
+  "onboardingFrequencyTitle": "Сколько раз в неделю ты тренируешься?",
+  "onboardingFrequencyOptionLabel": "{count, plural, one{{count} раз в неделю} few{{count} раза в неделю} many{{count} раз в неделю} other{{count} раза в неделю}}",
+
+  "onboardingLevelTitle": "Какой у тебя уровень?",
+  "onboardingLevelBeginner": "Новичок",
+  "onboardingLevelBeginnerHint": "До 6 месяцев",
+  "onboardingLevelIntermediate": "Средний",
+  "onboardingLevelIntermediateHint": "6 месяцев – 2 года",
+  "onboardingLevelAdvanced": "Опытный",
+  "onboardingLevelAdvancedHint": "2+ года",
+
+  "onboardingReadyTitle": "Твоя программа готова",
+  "onboardingReadyRestDayLabel": "Отдых",
+  "onboardingReadyStartButton": "НАЧАТЬ ПЕРВУЮ ТРЕНИРОВКУ",
+
+  "completionTitle": "ТРЕНИРОВКА ЗАВЕРШЕНА 🔥",
+  "completionSubtitle": "Отличная работа!",
+  "completionDurationLabel": "ВРЕМЯ",
+  "completionVolumeLabel": "ОБЪЁМ",
+  "completionSetsLabel": "ПОДХОДЫ",
+  "completionNewPrBadge": "🏆 Новый PR",
+  "completionMotivationLine": "Ты стал сильнее. Твой рабочий вес в упражнении «{exercise}» вырос на {delta} кг.",
+  "completionDoneButton": "ГОТОВО"
+}

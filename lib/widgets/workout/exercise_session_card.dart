@@ -4,8 +4,10 @@ import '../../models/active_exercise.dart';
 import '../../data/entitlement_store.dart';
 import '../../data/workout_session_store.dart';
 import '../../l10n/app_localizations.dart';
+import '../../l10n/exercise_content_l10n.dart';
 import '../../l10n/muscle_group_l10n.dart';
 import '../../theme/app_palette.dart';
+import 'current_set_editor.dart';
 import 'next_target_card.dart';
 import 'set_entry_row.dart';
 
@@ -43,7 +45,7 @@ class ExerciseSessionCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      entry.exercise.name,
+                      entry.exercise.displayName(context),
                       style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
                     ),
                     const SizedBox(height: 2),
@@ -84,14 +86,31 @@ class ExerciseSessionCard extends StatelessWidget {
           else
             Column(
               children: [
+                // Уже выполненные подходы — компактной строкой (см.
+                // SetEntryRow); первый невыполненный — крупным фокусным
+                // редактором (см. CurrentSetEditor), одно и то же и для
+                // подходов, добавленных программой, и вручную. Ещё не
+                // дошедшие подходы не показываются — по одному за раз,
+                // как того требует пошаговый режим Тренировки.
                 for (var i = 0; i < entry.sets.length; i++)
+                  if (entry.sets[i].completed)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: SetEntryRow(
+                        store: store,
+                        entry: entry,
+                        set: entry.sets[i],
+                        index: i,
+                      ),
+                    ),
+                if (entry.sets.any((s) => !s.completed))
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
-                    child: SetEntryRow(
+                    child: CurrentSetEditor(
                       store: store,
                       entry: entry,
-                      set: entry.sets[i],
-                      index: i,
+                      set: entry.sets.firstWhere((s) => !s.completed),
+                      index: entry.sets.indexWhere((s) => !s.completed),
                     ),
                   ),
               ],

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../data/entitlement_store.dart';
 import '../../data/workout_session_store.dart';
 import '../../l10n/app_localizations.dart';
+import '../../l10n/exercise_content_l10n.dart';
 import '../../theme/app_palette.dart';
 import '../pro_teaser_card.dart';
 
@@ -76,7 +77,7 @@ class _StrengthProgressSectionState extends State<StrengthProgressSection> {
                   final name = exerciseNames[index];
                   final active = name == _selectedExercise;
                   return ChoiceChip(
-                    label: Text(name),
+                    label: Text(name.displayExerciseName(context)),
                     selected: active,
                     onSelected: (_) => setState(() => _selectedExercise = name),
                     selectedColor: colors.accent,

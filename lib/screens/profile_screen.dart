@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../data/body_weight_store.dart';
 import '../data/entitlement_store.dart';
+import '../data/locale_store.dart';
 import '../data/purchase_service.dart';
 import '../data/theme_store.dart';
 import '../data/user_profile_store.dart';
@@ -26,6 +27,7 @@ class ProfileScreen extends StatelessWidget {
   final BodyWeightStore bodyWeightStore;
   final UserProfileStore userProfileStore;
   final ThemeStore themeStore;
+  final LocaleStore localeStore;
 
   const ProfileScreen({
     super.key,
@@ -35,6 +37,7 @@ class ProfileScreen extends StatelessWidget {
     required this.bodyWeightStore,
     required this.userProfileStore,
     required this.themeStore,
+    required this.localeStore,
   });
 
   Future<void> _editName(BuildContext context) async {
@@ -96,7 +99,11 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(height: 28),
                 SectionTitle(title: l10n.settingsSection),
                 const SizedBox(height: 14),
-                SettingsSection(workoutStore: workoutStore, themeStore: themeStore),
+                SettingsSection(
+                  workoutStore: workoutStore,
+                  themeStore: themeStore,
+                  localeStore: localeStore,
+                ),
                 if (kDebugMode) ...[
                   const SizedBox(height: 28),
                   SectionTitle(title: l10n.profileDeveloperSection),

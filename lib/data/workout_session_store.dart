@@ -8,6 +8,8 @@ import '../models/active_exercise.dart';
 import '../models/completed_workout.dart';
 import '../models/exercise_definition.dart';
 import '../models/personal_record.dart';
+import '../models/training_program.dart';
+import '../models/workout_finish_summary.dart';
 import '../models/workout_set_entry.dart';
 import 'exercise_library.dart';
 import 'rest_timer_notification_service.dart';
@@ -31,6 +33,10 @@ class WorkoutSessionStore extends ChangeNotifier {
   final List<CompletedWorkout> history = [];
 
   bool isLoaded = false;
+
+  /// Индекс упражнения, на котором сейчас сфокусирован пошаговый режим
+  /// Тренировки (см. [WorkoutScreen]) — одно упражнение на экране за раз.
+  int currentExerciseIndex = 0;
 
   int restDurationSeconds = 90;
   int _restRemaining = 0;
@@ -91,15 +97,30 @@ class WorkoutSessionStore extends ChangeNotifier {
   // ---------------------------------------------------------------------
 
   void addExercise(ExerciseDefinition exercise) {
+    final isFreshSession = exercises.isEmpty;
     _startedAt ??= DateTime.now();
     if (exercises.any((e) => e.exercise == exercise)) return;
     exercises.add(ActiveExercise(exercise: exercise));
+    if (isFreshSession) currentExerciseIndex = 0;
     notifyListeners();
   }
 
   void removeExercise(ActiveExercise entry) {
     exercises.remove(entry);
+    if (currentExerciseIndex >= exercises.length) {
+      currentExerciseIndex = exercises.isEmpty ? 0 : exercises.length - 1;
+    }
     notifyListeners();
+  }
+
+  /// Переключает пошаговый режим Тренировки на следующее упражнение в
+  /// списке (см. [currentExerciseIndex]) — вызывается после того, как все
+  /// подходы текущего упражнения выполнены.
+  void advanceToNextExercise() {
+    if (currentExerciseIndex < exercises.length - 1) {
+      currentExerciseIndex++;
+      notifyListeners();
+    }
   }
 
   ExerciseDefinition addCustomExercise({
@@ -125,17 +146,63 @@ class WorkoutSessionStore extends ChangeNotifier {
     return definition;
   }
 
+  /// Заполняет активную тренировку упражнениями дня автосгенерированной
+  /// программы (см. [TrainingProgramStore]) — столько подходов, сколько
+  /// задано в программе. Вес и повторения по умолчанию берутся из истории
+  /// этого упражнения (см. [addSet]); если упражнение выполняется впервые,
+  /// повторения подставляются из целевого диапазона дня, а вес пользователь
+  /// вводит сам. Программа сама не персистится этим методом — она уже
+  /// целиком лежит в `app_settings` (см. [TrainingProgramStore]).
+  void applyProgramDay(TrainingProgramDay day) {
+    for (final programExercise in day.exercises) {
+      ExerciseDefinition? definition;
+      for (final candidate in ExerciseLibrary.builtIn) {
+        if (candidate.name == programExercise.exerciseName) {
+          definition = candidate;
+          break;
+        }
+      }
+      if (definition == null) continue;
+
+      addExercise(definition);
+      final entry = exercises.firstWhere((e) => e.exercise == definition);
+      for (var i = 0; i < programExercise.targetSets; i++) {
+        addSet(entry, defaultReps: programExercise.repsLow);
+      }
+    }
+    notifyListeners();
+  }
+
   // ---------------------------------------------------------------------
   // Sets
   // ---------------------------------------------------------------------
 
-  void addSet(ActiveExercise entry) {
+  /// Добавляет новый подход. Для первого подхода упражнения в этой сессии
+  /// значения по умолчанию берутся из его последнего результата в истории
+  /// (см. [lastSetFor]) — так пользователь не начинает каждый раз с нуля.
+  /// Если истории по упражнению нет, используются [defaultWeight]/
+  /// [defaultReps] (например, целевой диапазон программы — см.
+  /// [applyProgramDay]) либо 0. Для второго и последующих подходов —
+  /// значения повторяются с предыдущего подхода этой же сессии, как раньше.
+  void addSet(ActiveExercise entry, {double? defaultWeight, int? defaultReps}) {
     final previous = entry.sets.isNotEmpty ? entry.sets.last : null;
+
+    double weight;
+    int reps;
+    if (previous != null) {
+      weight = previous.weight;
+      reps = previous.reps;
+    } else {
+      final fromHistory = lastSetFor(entry.exercise.name);
+      weight = fromHistory?.weight ?? defaultWeight ?? 0;
+      reps = fromHistory?.reps ?? defaultReps ?? 0;
+    }
+
     entry.sets.add(
       WorkoutSetEntry(
         id: _nextSetId++,
-        weight: previous?.weight ?? 0,
-        reps: previous?.reps ?? 0,
+        weight: weight,
+        reps: reps,
         rpe: previous?.rpe,
         toFailure: previous?.toFailure ?? false,
       ),
@@ -266,7 +333,7 @@ class WorkoutSessionStore extends ChangeNotifier {
   // Finish workout
   // ---------------------------------------------------------------------
 
-  CompletedWorkout finishWorkout() {
+  WorkoutFinishSummary finishWorkout() {
     final durationMinutes = elapsed.inMinutes < 1 ? 1 : elapsed.inMinutes;
 
     double volume = 0;
@@ -276,18 +343,45 @@ class WorkoutSessionStore extends ChangeNotifier {
       }
     }
 
-    // PR-и считаем ДО того, как эта тренировка попадёт в историю — иначе
-    // она будет сравнивать себя саму с собой.
+    // PR-и и рост рабочего веса считаем ДО того, как эта тренировка попадёт
+    // в историю — иначе она будет сравнивать себя саму с собой.
     var prCount = 0;
+    final exerciseResults = <ExerciseFinishResult>[];
     for (final ex in exercises) {
-      final sessionBest = _bestE1rmInActiveSets(ex.sets);
+      final sessionBest = _bestSetInActiveSets(ex.sets);
       if (sessionBest == null) continue;
-      final priorBest = _bestE1rmForExerciseInHistory(ex.exercise.name);
-      if (priorBest != null && sessionBest > priorBest) prCount++;
+
+      final priorBest = _bestSetForExerciseInHistory(ex.exercise.name);
+      final sessionE1rm = _epley(sessionBest.weight, sessionBest.reps);
+      final priorE1rm = priorBest == null ? null : _epley(priorBest.weight, priorBest.reps);
+      final isPr = priorE1rm != null && sessionE1rm > priorE1rm;
+      if (isPr) prCount++;
+
+      exerciseResults.add(
+        ExerciseFinishResult(
+          exerciseName: ex.exercise.name,
+          muscleGroup: ex.exercise.muscleGroup,
+          bestSet: CompletedWorkoutSet(
+            weight: sessionBest.weight,
+            reps: sessionBest.reps,
+            rpe: sessionBest.rpe,
+            toFailure: sessionBest.toFailure,
+          ),
+          isPr: isPr,
+          weightDeltaKg: priorBest == null ? null : sessionBest.weight - priorBest.weight,
+        ),
+      );
     }
 
-    final muscleGroups = exercises.map((e) => e.exercise.muscleGroup).toSet();
-    final name = exercises.isEmpty
+    // Программа заранее создаёт подходы для всех упражнений дня (см.
+    // applyProgramDay), но пользователь мог не дойти до части из них —
+    // в историю попадают только реально выполненные подходы и только
+    // упражнения, где хотя бы один подход выполнен, иначе "Тренировка
+    // завершена" показывала бы нетронутые целевые подходы как реальную
+    // работу (искажая объём, счётчик подходов и будущие PR-сравнения).
+    final workedExercises = exercises.where((ex) => ex.sets.any((s) => s.completed)).toList();
+    final muscleGroups = workedExercises.map((e) => e.exercise.muscleGroup).toSet();
+    final name = workedExercises.isEmpty
         ? 'Workout'
         : (muscleGroups.length == 1 ? '${muscleGroups.first} Day' : 'Full Body Day');
 
@@ -298,18 +392,19 @@ class WorkoutSessionStore extends ChangeNotifier {
       volumeKg: volume,
       prCount: prCount,
       exercises: [
-        for (final ex in exercises)
+        for (final ex in workedExercises)
           CompletedExercise(
             exerciseName: ex.exercise.name,
             muscleGroup: ex.exercise.muscleGroup,
             sets: [
               for (final s in ex.sets)
-                CompletedWorkoutSet(
-                  weight: s.weight,
-                  reps: s.reps,
-                  rpe: s.rpe,
-                  toFailure: s.toFailure,
-                ),
+                if (s.completed)
+                  CompletedWorkoutSet(
+                    weight: s.weight,
+                    reps: s.reps,
+                    rpe: s.rpe,
+                    toFailure: s.toFailure,
+                  ),
             ],
           ),
       ],
@@ -320,10 +415,11 @@ class WorkoutSessionStore extends ChangeNotifier {
 
     exercises.clear();
     _startedAt = null;
+    currentExerciseIndex = 0;
     skipRestTimer();
     notifyListeners();
 
-    return completed;
+    return WorkoutFinishSummary(workout: completed, exerciseResults: exerciseResults);
   }
 
   /// Последний зафиксированный подход по этому упражнению из истории
@@ -349,25 +445,33 @@ class WorkoutSessionStore extends ChangeNotifier {
 
   double _epley(double weight, int reps) => reps <= 1 ? weight : weight * (1 + reps / 30);
 
-  double? _bestE1rmInActiveSets(List<WorkoutSetEntry> sets) {
-    double? best;
+  WorkoutSetEntry? _bestSetInActiveSets(List<WorkoutSetEntry> sets) {
+    WorkoutSetEntry? best;
+    double? bestE1rm;
     for (final s in sets) {
       if (!s.completed || s.weight <= 0 || s.reps <= 0) continue;
       final e1rm = _epley(s.weight, s.reps);
-      if (best == null || e1rm > best) best = e1rm;
+      if (bestE1rm == null || e1rm > bestE1rm) {
+        bestE1rm = e1rm;
+        best = s;
+      }
     }
     return best;
   }
 
-  double? _bestE1rmForExerciseInHistory(String exerciseName) {
-    double? best;
+  CompletedWorkoutSet? _bestSetForExerciseInHistory(String exerciseName) {
+    CompletedWorkoutSet? best;
+    double? bestE1rm;
     for (final workout in history) {
       for (final ex in workout.exercises) {
         if (ex.exerciseName.toLowerCase() != exerciseName.toLowerCase()) continue;
         for (final s in ex.sets) {
           if (s.weight <= 0 || s.reps <= 0) continue;
           final e1rm = _epley(s.weight, s.reps);
-          if (best == null || e1rm > best) best = e1rm;
+          if (bestE1rm == null || e1rm > bestE1rm) {
+            bestE1rm = e1rm;
+            best = s;
+          }
         }
       }
     }

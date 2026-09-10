@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/workout_session_store.dart';
 import '../../l10n/app_localizations.dart';
+import '../../l10n/exercise_content_l10n.dart';
 import '../../l10n/muscle_group_l10n.dart';
 import '../../theme/app_palette.dart';
 
@@ -73,7 +74,7 @@ class PersonalRecordsSection extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                record.exerciseName,
+                                record.exerciseName.displayExerciseName(context),
                                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                               ),
                               Text(

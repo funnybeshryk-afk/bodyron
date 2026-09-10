@@ -6,6 +6,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_ru.dart';
+import 'app_localizations_uz.dart';
 
 // ignore_for_file: type=lint
 
@@ -92,7 +94,11 @@ abstract class AppLocalizations {
       ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('ru'),
+    Locale('uz'),
+  ];
 
   /// App name shown on the Dashboard header
   ///
@@ -268,6 +274,24 @@ abstract class AppLocalizations {
   /// **'FINISH WORKOUT'**
   String get finishWorkoutButton;
 
+  /// No description provided for @workoutExerciseProgressLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'EXERCISE {current} OF {total}'**
+  String workoutExerciseProgressLabel(int current, int total);
+
+  /// No description provided for @workoutNextExerciseButton.
+  ///
+  /// In en, this message translates to:
+  /// **'START NEXT EXERCISE'**
+  String get workoutNextExerciseButton;
+
+  /// No description provided for @workoutAllDoneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'All exercises done'**
+  String get workoutAllDoneTitle;
+
   /// No description provided for @emptyWorkoutTitle.
   ///
   /// In en, this message translates to:
@@ -309,6 +333,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last: {value} kg × {reps}'**
   String lastSetHint(String value, int reps);
+
+  /// No description provided for @setDoneButton.
+  ///
+  /// In en, this message translates to:
+  /// **'✓ DONE'**
+  String get setDoneButton;
+
+  /// No description provided for @setDoneFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'✓ Set complete'**
+  String get setDoneFeedback;
 
   /// No description provided for @addExerciseSheetTitle.
   ///
@@ -397,7 +433,7 @@ abstract class AppLocalizations {
   /// No description provided for @addIntensityLabel.
   ///
   /// In en, this message translates to:
-  /// **'ADD INTENSITY'**
+  /// **'EDIT SET'**
   String get addIntensityLabel;
 
   /// No description provided for @plateCalculatorTooltip.
@@ -471,6 +507,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skip rest'**
   String get skipRestTooltip;
+
+  /// No description provided for @restSkipButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get restSkipButton;
 
   /// No description provided for @restTimerNotificationTitle.
   ///
@@ -945,6 +987,366 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'System'**
   String get themeModeSystem;
+
+  /// No description provided for @languageSettingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get languageSettingTitle;
+
+  /// No description provided for @weekdayMonShort.
+  ///
+  /// In en, this message translates to:
+  /// **'M'**
+  String get weekdayMonShort;
+
+  /// No description provided for @weekdayTueShort.
+  ///
+  /// In en, this message translates to:
+  /// **'T'**
+  String get weekdayTueShort;
+
+  /// No description provided for @weekdayWedShort.
+  ///
+  /// In en, this message translates to:
+  /// **'W'**
+  String get weekdayWedShort;
+
+  /// No description provided for @weekdayThuShort.
+  ///
+  /// In en, this message translates to:
+  /// **'T'**
+  String get weekdayThuShort;
+
+  /// No description provided for @weekdayFriShort.
+  ///
+  /// In en, this message translates to:
+  /// **'F'**
+  String get weekdayFriShort;
+
+  /// No description provided for @weekdaySatShort.
+  ///
+  /// In en, this message translates to:
+  /// **'S'**
+  String get weekdaySatShort;
+
+  /// No description provided for @weekdaySunShort.
+  ///
+  /// In en, this message translates to:
+  /// **'S'**
+  String get weekdaySunShort;
+
+  /// No description provided for @weekdayMonFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get weekdayMonFull;
+
+  /// No description provided for @weekdayTueFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get weekdayTueFull;
+
+  /// No description provided for @weekdayWedFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get weekdayWedFull;
+
+  /// No description provided for @weekdayThuFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get weekdayThuFull;
+
+  /// No description provided for @weekdayFriFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get weekdayFriFull;
+
+  /// No description provided for @weekdaySatFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get weekdaySatFull;
+
+  /// No description provided for @weekdaySunFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get weekdaySunFull;
+
+  /// No description provided for @exerciseTechniqueTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise technique'**
+  String get exerciseTechniqueTooltip;
+
+  /// No description provided for @exerciseTipsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'TECHNIQUE TIPS'**
+  String get exerciseTipsTitle;
+
+  /// No description provided for @exerciseCommonMistakeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'COMMON MISTAKE'**
+  String get exerciseCommonMistakeTitle;
+
+  /// No description provided for @learnCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn the Basics'**
+  String get learnCardTitle;
+
+  /// No description provided for @learnCardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips on progression, rest, RPE and more'**
+  String get learnCardSubtitle;
+
+  /// No description provided for @trainingArticlesScreenEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'LEARN'**
+  String get trainingArticlesScreenEyebrow;
+
+  /// No description provided for @trainingArticlesScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Training Articles'**
+  String get trainingArticlesScreenTitle;
+
+  /// No description provided for @todayWorkoutStartButton.
+  ///
+  /// In en, this message translates to:
+  /// **'START'**
+  String get todayWorkoutStartButton;
+
+  /// No description provided for @restDayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest day 😌'**
+  String get restDayTitle;
+
+  /// No description provided for @restDaySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve already completed today\'s plan.'**
+  String get restDaySubtitle;
+
+  /// No description provided for @restDayNextWorkoutLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Next workout'**
+  String get restDayNextWorkoutLabel;
+
+  /// No description provided for @restDayViewWorkoutButton.
+  ///
+  /// In en, this message translates to:
+  /// **'VIEW WORKOUT'**
+  String get restDayViewWorkoutButton;
+
+  /// No description provided for @restDayStartEarlyButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Start workout early'**
+  String get restDayStartEarlyButton;
+
+  /// No description provided for @noProgramTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No active program'**
+  String get noProgramTitle;
+
+  /// No description provided for @noProgramSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up a training program and Home will show you what to do today.'**
+  String get noProgramSubtitle;
+
+  /// No description provided for @noProgramSetupButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up a program'**
+  String get noProgramSetupButton;
+
+  /// No description provided for @onboardingWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to BODYRON'**
+  String get onboardingWelcomeTitle;
+
+  /// No description provided for @onboardingWelcomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Train. Track. Get stronger.'**
+  String get onboardingWelcomeSubtitle;
+
+  /// No description provided for @onboardingStartButton.
+  ///
+  /// In en, this message translates to:
+  /// **'GET STARTED'**
+  String get onboardingStartButton;
+
+  /// No description provided for @onboardingGoalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s your goal?'**
+  String get onboardingGoalTitle;
+
+  /// No description provided for @onboardingGoalMuscleGain.
+  ///
+  /// In en, this message translates to:
+  /// **'Build muscle'**
+  String get onboardingGoalMuscleGain;
+
+  /// No description provided for @onboardingGoalStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Get stronger'**
+  String get onboardingGoalStrength;
+
+  /// No description provided for @onboardingGoalWeightLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Lose weight'**
+  String get onboardingGoalWeightLoss;
+
+  /// No description provided for @onboardingGoalMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay in shape'**
+  String get onboardingGoalMaintenance;
+
+  /// No description provided for @onboardingContinueButton.
+  ///
+  /// In en, this message translates to:
+  /// **'CONTINUE'**
+  String get onboardingContinueButton;
+
+  /// No description provided for @onboardingFrequencyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How many times a week do you train?'**
+  String get onboardingFrequencyTitle;
+
+  /// No description provided for @onboardingFrequencyOptionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{count}x a week} other{{count}x a week}}'**
+  String onboardingFrequencyOptionLabel(int count);
+
+  /// No description provided for @onboardingLevelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s your experience level?'**
+  String get onboardingLevelTitle;
+
+  /// No description provided for @onboardingLevelBeginner.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner'**
+  String get onboardingLevelBeginner;
+
+  /// No description provided for @onboardingLevelBeginnerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Under 6 months'**
+  String get onboardingLevelBeginnerHint;
+
+  /// No description provided for @onboardingLevelIntermediate.
+  ///
+  /// In en, this message translates to:
+  /// **'Intermediate'**
+  String get onboardingLevelIntermediate;
+
+  /// No description provided for @onboardingLevelIntermediateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'6 months – 2 years'**
+  String get onboardingLevelIntermediateHint;
+
+  /// No description provided for @onboardingLevelAdvanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get onboardingLevelAdvanced;
+
+  /// No description provided for @onboardingLevelAdvancedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'2+ years'**
+  String get onboardingLevelAdvancedHint;
+
+  /// No description provided for @onboardingReadyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your program is ready'**
+  String get onboardingReadyTitle;
+
+  /// No description provided for @onboardingReadyRestDayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest'**
+  String get onboardingReadyRestDayLabel;
+
+  /// No description provided for @onboardingReadyStartButton.
+  ///
+  /// In en, this message translates to:
+  /// **'START FIRST WORKOUT'**
+  String get onboardingReadyStartButton;
+
+  /// No description provided for @completionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'WORKOUT COMPLETE 🔥'**
+  String get completionTitle;
+
+  /// No description provided for @completionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Great work!'**
+  String get completionSubtitle;
+
+  /// No description provided for @completionDurationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'TIME'**
+  String get completionDurationLabel;
+
+  /// No description provided for @completionVolumeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'VOLUME'**
+  String get completionVolumeLabel;
+
+  /// No description provided for @completionSetsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'SETS'**
+  String get completionSetsLabel;
+
+  /// No description provided for @completionNewPrBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'🏆 New PR'**
+  String get completionNewPrBadge;
+
+  /// No description provided for @completionMotivationLine.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re getting stronger. Your {exercise} working weight is up {delta} kg.'**
+  String completionMotivationLine(String exercise, String delta);
+
+  /// No description provided for @completionDoneButton.
+  ///
+  /// In en, this message translates to:
+  /// **'DONE'**
+  String get completionDoneButton;
 }
 
 class _AppLocalizationsDelegate
@@ -958,7 +1360,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en'].contains(locale.languageCode);
+      <String>['en', 'ru', 'uz'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -969,6 +1371,10 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'en':
       return AppLocalizationsEn();
+    case 'ru':
+      return AppLocalizationsRu();
+    case 'uz':
+      return AppLocalizationsUz();
   }
 
   throw FlutterError(

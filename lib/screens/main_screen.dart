@@ -2,21 +2,38 @@ import 'package:flutter/material.dart';
 
 import '../data/body_weight_store.dart';
 import '../data/entitlement_store.dart';
+import '../data/locale_store.dart';
 import '../data/purchase_service.dart';
 import '../data/theme_store.dart';
+import '../data/training_program_store.dart';
 import '../data/user_profile_store.dart';
 import '../data/workout_session_store.dart';
+import '../models/training_program.dart';
 import '../widgets/main_bottom_nav.dart';
 import '../widgets/workout/rest_timer_banner.dart';
 import 'dashboard_screen.dart';
+import 'onboarding_screen.dart';
 import 'profile_screen.dart';
 import 'progress_screen.dart';
 import 'workout_screen.dart';
 
 class MainScreen extends StatefulWidget {
   final ThemeStore themeStore;
+  final LocaleStore localeStore;
+  final TrainingProgramStore trainingProgramStore;
 
-  const MainScreen({super.key, required this.themeStore});
+  /// true только сразу после обязательного онбординга нового пользователя —
+  /// открывает вкладку Тренировки с уже применённым первым днём программы
+  /// (см. [_MainScreenState.initState]).
+  final bool startWorkoutOnLaunch;
+
+  const MainScreen({
+    super.key,
+    required this.themeStore,
+    required this.localeStore,
+    required this.trainingProgramStore,
+    this.startWorkoutOnLaunch = false,
+  });
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -34,7 +51,9 @@ class _MainScreenState extends State<MainScreen> {
     DashboardScreen(
       store: workoutStore,
       bodyWeightStore: bodyWeightStore,
-      onStartWorkout: () => _goToTab(1),
+      trainingProgramStore: widget.trainingProgramStore,
+      onStartProgramDay: _startProgramDay,
+      onSetupProgram: _openProgramSetup,
     ),
     WorkoutScreen(
       store: workoutStore,
@@ -53,6 +72,7 @@ class _MainScreenState extends State<MainScreen> {
       bodyWeightStore: bodyWeightStore,
       userProfileStore: userProfileStore,
       themeStore: widget.themeStore,
+      localeStore: widget.localeStore,
     ),
   ];
 
@@ -64,6 +84,11 @@ class _MainScreenState extends State<MainScreen> {
     workoutStore.loadFromDatabase();
     bodyWeightStore.loadFromDatabase();
     userProfileStore.loadFromDatabase();
+    widget.trainingProgramStore.loadFromDatabase().then((_) {
+      if (!widget.startWorkoutOnLaunch || !mounted) return;
+      final day = widget.trainingProgramStore.nextTrainingDay();
+      if (day != null) _startProgramDay(day);
+    });
     // Локальное значение читаем сразу для мгновенного UI, но источником
     // правды остаётся restorePurchases — он может только подтвердить/выдать
     // PRO, не отобрать, поэтому запускаем его уже после локальной загрузки.
@@ -72,6 +97,30 @@ class _MainScreenState extends State<MainScreen> {
 
   void _goToTab(int index) {
     setState(() => currentIndex = index);
+  }
+
+  /// Заполняет активную тренировку выбранным днём программы (сегодняшним
+  /// или следующим — см. [TrainingProgramDay]) и открывает вкладку
+  /// Тренировки. Используется и Home-карточкой ("НАЧАТЬ"/"Начать
+  /// тренировку раньше"), и первым запуском после онбординга.
+  void _startProgramDay(TrainingProgramDay day) {
+    workoutStore.applyProgramDay(day);
+    _goToTab(1);
+  }
+
+  Future<void> _openProgramSetup() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => OnboardingScreen(
+          store: widget.trainingProgramStore,
+          onFinished: () {
+            Navigator.of(context).pop();
+            final day = widget.trainingProgramStore.nextTrainingDay();
+            if (day != null) _startProgramDay(day);
+          },
+        ),
+      ),
+    );
   }
 
   @override

@@ -1,0 +1,263 @@
+{
+  "@@locale": "uz",
+
+  "appTitle": "BODYRON",
+  "appTagline": "TANANGNI SHAKLLANTIR",
+
+  "startWorkoutEyebrow": "MASHQ QILISHGA TAYYORMISAN?",
+  "startWorkoutHeadline": "Mashgʻulotni boshlash",
+  "startWorkoutButton": "BOSHLASH",
+
+  "todayWorkoutLabel": "BUGUNGI MASHGʻULOT",
+  "todayWorkoutSummary": "{muscles} · {count} mashq · ~{minutes} daqiqa",
+
+  "sectionLastWorkout": "OXIRGI MASHGʻULOT",
+  "minutesShort": "{minutes} daq",
+  "weightKg": "{value} kg",
+  "prCount": "{count} PR",
+
+  "sectionBodyWeight": "TANA VAZNI",
+  "currentBodyWeightLabel": "JORIY TANA VAZNI",
+
+  "weeklyProgressLabel": "HAFTALIK NATIJA",
+  "weeklyProgressCount": "{done}/{goal} mashgʻulot",
+
+  "navHome": "Bosh sahifa",
+  "navWorkout": "Mashgʻulot",
+  "navProgress": "Natija",
+  "navProfile": "Profil",
+
+  "workoutScreenEyebrow": "MASHGʻULOT",
+  "workoutScreenTitle": "Yangi mashgʻulot",
+  "restTimerSettingsTooltip": "Dam olish taymeri sozlamalari",
+  "finishWorkoutDialogTitle": "Mashgʻulotni yakunlaysanmi?",
+  "finishWorkoutDialogContent": "Bu seansni saqlaydi va mashgʻulot ekranini tozalaydi.",
+  "cancel": "Bekor qilish",
+  "finish": "Yakunlash",
+  "workoutSavedMessage": "Mashgʻulot saqlandi",
+  "addExerciseButton": "MASHQ QOʻSHISH",
+  "finishWorkoutButton": "MASHGʻULOTNI YAKUNLASH",
+  "workoutExerciseProgressLabel": "{total} DAN {current}-MASHQ",
+  "workoutNextExerciseButton": "KEYINGI MASHQNI BOSHLASH",
+  "workoutAllDoneTitle": "Barcha mashqlar bajarildi",
+
+  "emptyWorkoutTitle": "Mashgʻulotingni tuz",
+  "emptyWorkoutSubtitle": "Kuzatishni boshlash uchun mashqlar qoʻsh.",
+
+  "workoutTimeLabel": "MASHGʻULOT VAQTI",
+
+  "removeExerciseTooltip": "Mashqni oʻchirish",
+  "noSetsYetMessage": "Hali yondashuv yoʻq — birinchisini qoʻsh.",
+  "addSetButton": "YONDASHUV QOʻSHISH",
+  "lastSetHint": "Oxirgi safar: {value} kg × {reps}",
+  "setDoneButton": "✓ TAYYOR",
+  "setDoneFeedback": "✓ Yondashuv bajarildi",
+
+  "addExerciseSheetTitle": "Mashq qoʻshish",
+  "addYourOwnExerciseTile": "Oʻz mashqingni qoʻshish",
+
+  "addCustomExerciseDialogTitle": "Oʻz mashqingni qoʻshish",
+  "exerciseNameHint": "Mashq nomi",
+  "muscleGroupOptionalLabel": "MUSKUL GURUHI (IXTIYORIY)",
+  "add": "Qoʻshish",
+
+  "setIntensityTitle": "Yondashuv intensivligi",
+  "rpeLabel": "RPE",
+  "toFailureLabel": "Toʻliq charchaguncha",
+  "rpeValue": "RPE {value}",
+  "toFailureDescription": "Bu yondashuv mushak toʻliq charchaguncha bajarilgan deb belgilanadi.",
+  "clear": "Tozalash",
+  "save": "Saqlash",
+
+  "toFailureChipLabel": "TOʻLIQ CHARCHAGUNCHA",
+  "addIntensityLabel": "YONDASHUVNI OʻZGARTIRISH",
+
+  "plateCalculatorTooltip": "Disk kalkulyatori",
+  "plateCalculatorTitle": "Disk kalkulyatori",
+  "plateCalculatorTargetWeight": "Maqsad: {value} kg",
+  "plateCalculatorBarLabel": "Grif: {value} kg",
+  "plateCalculatorPerSideLabel": "HAR TOMONGA",
+  "plateCalculatorNoPlatesMessage": "Grifning oʻzi bu vaznga yetadi yoki undan ogʻir — disk kerak emas.",
+  "plateCalculatorBelowBarMessage": "Maqsad grif vaznidan kam ({value} kg).",
+  "plateCalculatorApproxNote": "Standart disklar bilan eng yaqin natija: {value} kg",
+
+  "defaultRestTimeTitle": "Standart dam olish vaqti",
+
+  "restCompleteLabel": "DAM OLISH TUGADI",
+  "restLabel": "DAM OLISH",
+  "skipRestTooltip": "Dam olishni oʻtkazib yuborish",
+  "restSkipButton": "Oʻtkazib yuborish",
+  "restTimerNotificationTitle": "Dam olish tugadi",
+  "restTimerNotificationBody": "Keyingi yondashuv vaqti keldi.",
+
+  "muscleGroupChest": "Koʻkrak",
+  "muscleGroupBack": "Orqa",
+  "muscleGroupLegs": "Oyoq",
+  "muscleGroupShoulders": "Yelka",
+  "muscleGroupArms": "Qoʻl",
+  "muscleGroupAbs": "Press",
+
+  "profileScreenTitle": "Profil",
+  "profileDeveloperSection": "DASTURCHI",
+  "proDebugToggleLabel": "PRO — faqat sinov uchun",
+  "proDebugToggleSubtitle": "Interfeysni tekshirish uchun PRO huquqini simulyatsiya qiladi. Relizda koʻrinmaydi.",
+  "proBadgeLabel": "PRO",
+
+  "proSectionTitle": "PRO",
+  "proUpgradeDescription": "Progressiya boʻyicha aqlli tavsiyalar, kuch grafiklari va plato aniqlash.",
+  "proUpgradeButtonLabel": "Sotib olish — {price}",
+  "proPurchasedTitle": "PRO faollashtirildi",
+  "proPurchasedOnDate": "{date} sotib olindi",
+  "proUnavailableTitle": "PRO sotib olish hozircha mavjud emas",
+  "proUnavailableSubtitle": "Doʻkon hali sozlanmagan. Keyinroq qayta urin.",
+
+  "purchaseErrorNetwork": "Internet aloqasi yoʻq. Tarmoqni tekshirib, qayta urin.",
+  "purchaseErrorItemUnavailable": "Bu mahsulot hozir mavjud emas. Keyinroq qayta urin.",
+  "purchaseErrorCancelled": "Xarid bekor qilindi.",
+  "purchaseErrorGeneric": "Xarid amalga oshmadi. Qayta urin.",
+
+  "exportHistorySection": "MAʻLUMOTLAR",
+  "exportHistoryTitle": "Mashgʻulotlar tarixini eksport qilish",
+  "exportHistorySubtitle": "Barcha yakunlangan mashgʻulotlar bilan CSV faylni ulash",
+  "exportHistoryEmptyHint": "Tarixni eksport qilish uchun avval mashgʻulotni yakunla",
+  "exportHistoryShareText": "BODYRON mashgʻulotlar tarixi",
+  "exportHistoryErrorMessage": "Mashgʻulotlar tarixini eksport qilib boʻlmadi",
+
+  "relativeToday": "Bugun",
+  "relativeYesterday": "Kecha",
+  "relativeDaysAgo": "{days} kun oldin",
+
+  "bodyWeightEmptyTitle": "Vazn hali kiritilmagan",
+  "bodyWeightEmptyMessage": "Birinchi vazningni qoʻsh",
+  "addWeightEntryButton": "YOZUV QOʻSHISH",
+  "addWeightEntryDialogTitle": "Tana vaznini kiritish",
+  "weightFieldLabel": "Vazn (kg)",
+  "dateFieldLabel": "Sana",
+  "weightEntryInvalidMessage": "0 dan katta vazn kirit",
+
+  "profileNameSection": "ISM",
+  "profileNameEmpty": "Ismingni qoʻsh",
+  "editNameDialogTitle": "Isming",
+  "nameFieldHint": "Ismingni kirit",
+
+  "profileBodyWeightSection": "TANA VAZNI",
+  "profileBodyWeightEmptyHint": "Hali yozuv yoʻq",
+
+  "settingsSection": "SOZLAMALAR",
+  "restDurationSettingTitle": "Standart dam olish vaqti",
+  "weightUnitSettingTitle": "Vazn birligi",
+  "weightUnitComingSoonHint": "Boshqa birliklar tez orada",
+
+  "appVersionLabel": "Versiya {version}",
+
+  "progressEmptyTitle": "Hali natija yoʻq",
+  "progressEmptyMessage": "Natijani koʻrish uchun bir nechta mashgʻulotni yakunla.",
+  "progressWeightChartTitle": "TANA VAZNI",
+  "progressVolumeChartTitle": "HAFTALIK HAJM",
+  "progressPersonalRecordsTitle": "SHAXSIY REKORDLAR",
+  "progressPersonalRecordsEmptyHint": "Bu yerda PR koʻrish uchun mashqni ikki mashgʻulotda takrorla",
+  "progressRecentWorkoutsTitle": "SOʻNGGI MASHGʻULOTLAR",
+  "progressWorkoutDetailTitle": "Mashgʻulot tafsilotlari",
+  "progressSetLabel": "{index}-yondashuv",
+  "progressNoWeightDataHint": "Grafikni koʻrish uchun tana vazningni yoz",
+  "progressNoVolumeDataHint": "Haftalik hajmni koʻrish uchun mashgʻulotni yakunla",
+
+  "weightByReps": "{weight} kg × {reps}",
+
+  "progressScreenTitle": "Natija",
+
+  "recentWorkoutSummary": "{when} · {count} mashq · {duration}",
+
+  "nextTargetLabel": "KEYINGI MAQSAD",
+  "nextTargetValue": "{weight} kg × {repsLow}–{repsHigh}",
+
+  "plateauBannerTitle": "Progress toʻxtab qoldi",
+  "plateauBannerMessage": "Eng yaxshi yondashuving soʻnggi 3 mashgʻulotda yaxshilanmadi. Mashq variatsiyasi yoki deload haftasini koʻrib chiq.",
+
+  "smartProgressionTeaserTitle": "Smart Progression funksiyasini PRO bilan och",
+  "smartProgressionTeaserSubtitle": "Tarixingga asoslangan shaxsiy vazn va takrorlash maqsadlarini ol.",
+
+  "strengthProgressTitle": "KUCH PROGRESSI",
+  "strengthProgressTeaserTitle": "PRO bilan kuch grafiklarini och",
+  "strengthProgressTeaserSubtitle": "Istalgan mashq boʻyicha taxminiy 1TM dinamikasini kuzat.",
+  "strengthProgressNoDataHint": "Bu mashq uchun hali yetarli tarix yoʻq.",
+
+  "themeSettingTitle": "Mavzu",
+  "themeModeLight": "Yorugʻ",
+  "themeModeDark": "Qorongʻi",
+  "themeModeSystem": "Tizim",
+
+  "languageSettingTitle": "Til",
+
+  "weekdayMonShort": "Du",
+  "weekdayTueShort": "Se",
+  "weekdayWedShort": "Ch",
+  "weekdayThuShort": "Pa",
+  "weekdayFriShort": "Ju",
+  "weekdaySatShort": "Sh",
+  "weekdaySunShort": "Ya",
+
+  "weekdayMonFull": "Dushanba",
+  "weekdayTueFull": "Seshanba",
+  "weekdayWedFull": "Chorshanba",
+  "weekdayThuFull": "Payshanba",
+  "weekdayFriFull": "Juma",
+  "weekdaySatFull": "Shanba",
+  "weekdaySunFull": "Yakshanba",
+
+  "exerciseTechniqueTooltip": "Mashq texnikasi",
+  "exerciseTipsTitle": "TEXNIKA BOʻYICHA MASLAHATLAR",
+  "exerciseCommonMistakeTitle": "KENG TARQALGAN XATO",
+
+  "learnCardTitle": "Asoslarni oʻrgan",
+  "learnCardSubtitle": "Progressiya, dam olish, RPE va boshqalar boʻyicha maslahatlar",
+  "trainingArticlesScreenEyebrow": "TAʼLIM",
+  "trainingArticlesScreenTitle": "Oʻquv maqolalari",
+
+  "todayWorkoutStartButton": "BOSHLASH",
+
+  "restDayTitle": "Bugun dam olish kuni 😌",
+  "restDaySubtitle": "Bugungi rejani allaqachon bajardingiz.",
+  "restDayNextWorkoutLabel": "Keyingi mashgʻulot",
+  "restDayViewWorkoutButton": "MASHGʻULOTNI KOʻRISH",
+  "restDayStartEarlyButton": "Mashgʻulotni muddatidan oldin boshlash",
+
+  "noProgramTitle": "Faol dastur yoʻq",
+  "noProgramSubtitle": "Mashgʻulot dasturini sozlang — Bosh sahifa bugun nima qilishni koʻrsatadi.",
+  "noProgramSetupButton": "Dasturni sozlash",
+
+  "onboardingWelcomeTitle": "BODYRONga xush kelibsiz",
+  "onboardingWelcomeSubtitle": "Mashq qil. Yoz. Kuchliroq boʻl.",
+  "onboardingStartButton": "BOSHLASH",
+
+  "onboardingGoalTitle": "Maqsading nima?",
+  "onboardingGoalMuscleGain": "Mushak massasini oshirish",
+  "onboardingGoalStrength": "Kuchliroq boʻlish",
+  "onboardingGoalWeightLoss": "Vaznni kamaytirish",
+  "onboardingGoalMaintenance": "Formani saqlash",
+  "onboardingContinueButton": "DAVOM ETISH",
+
+  "onboardingFrequencyTitle": "Haftada nechta marta mashq qilasan?",
+  "onboardingFrequencyOptionLabel": "Haftada {count} marta",
+
+  "onboardingLevelTitle": "Tajriba darajang qanday?",
+  "onboardingLevelBeginner": "Yangi boshlovchi",
+  "onboardingLevelBeginnerHint": "6 oygacha",
+  "onboardingLevelIntermediate": "Oʻrta daraja",
+  "onboardingLevelIntermediateHint": "6 oy – 2 yil",
+  "onboardingLevelAdvanced": "Tajribali",
+  "onboardingLevelAdvancedHint": "2+ yil",
+
+  "onboardingReadyTitle": "Dasturing tayyor",
+  "onboardingReadyRestDayLabel": "Dam olish",
+  "onboardingReadyStartButton": "BIRINCHI MASHGʻULOTNI BOSHLASH",
+
+  "completionTitle": "MASHGʻULOT YAKUNLANDI 🔥",
+  "completionSubtitle": "Ajoyib ish!",
+  "completionDurationLabel": "VAQT",
+  "completionVolumeLabel": "HAJM",
+  "completionSetsLabel": "YONDASHUVLAR",
+  "completionNewPrBadge": "🏆 Yangi PR",
+  "completionMotivationLine": "Sen kuchliroq boʻlding. {exercise} mashqida ishchi vazning {delta} kg oshdi.",
+  "completionDoneButton": "TAYYOR"
+}

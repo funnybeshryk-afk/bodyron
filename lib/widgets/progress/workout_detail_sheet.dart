@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
+import '../../l10n/exercise_content_l10n.dart';
+import '../../l10n/workout_name_l10n.dart';
 import '../../models/completed_workout.dart';
 import '../../theme/app_palette.dart';
 
@@ -60,7 +62,7 @@ class _WorkoutDetailContent extends StatelessWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          workout.name,
+                          workout.name.displayWorkoutName(context),
                           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
                         ),
                       ],
@@ -101,7 +103,7 @@ class _WorkoutDetailContent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          exercise.exerciseName,
+                          exercise.exerciseName.displayExerciseName(context),
                           style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
                         ),
                         const SizedBox(height: 10),

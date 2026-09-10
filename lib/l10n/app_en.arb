@@ -66,6 +66,15 @@
   "workoutSavedMessage": "Workout saved",
   "addExerciseButton": "ADD EXERCISE",
   "finishWorkoutButton": "FINISH WORKOUT",
+  "workoutExerciseProgressLabel": "EXERCISE {current} OF {total}",
+  "@workoutExerciseProgressLabel": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "workoutNextExerciseButton": "START NEXT EXERCISE",
+  "workoutAllDoneTitle": "All exercises done",
 
   "emptyWorkoutTitle": "Build Your Workout",
   "emptyWorkoutSubtitle": "Add exercises to start tracking your workout.",
@@ -82,6 +91,8 @@
       "reps": {"type": "int"}
     }
   },
+  "setDoneButton": "✓ DONE",
+  "setDoneFeedback": "✓ Set complete",
 
   "addExerciseSheetTitle": "Add Exercise",
   "addYourOwnExerciseTile": "Add your own exercise",
@@ -105,7 +116,7 @@
   "save": "Save",
 
   "toFailureChipLabel": "TO FAILURE",
-  "addIntensityLabel": "ADD INTENSITY",
+  "addIntensityLabel": "EDIT SET",
 
   "plateCalculatorTooltip": "Plate calculator",
   "plateCalculatorTitle": "Plate Calculator",
@@ -141,6 +152,7 @@
   "restCompleteLabel": "REST COMPLETE",
   "restLabel": "REST",
   "skipRestTooltip": "Skip rest",
+  "restSkipButton": "Skip",
   "restTimerNotificationTitle": "Rest complete",
   "restTimerNotificationBody": "Time for your next set.",
 
@@ -284,5 +296,90 @@
   "themeSettingTitle": "Theme",
   "themeModeLight": "Light",
   "themeModeDark": "Dark",
-  "themeModeSystem": "System"
+  "themeModeSystem": "System",
+
+  "languageSettingTitle": "Language",
+
+  "weekdayMonShort": "M",
+  "weekdayTueShort": "T",
+  "weekdayWedShort": "W",
+  "weekdayThuShort": "T",
+  "weekdayFriShort": "F",
+  "weekdaySatShort": "S",
+  "weekdaySunShort": "S",
+
+  "weekdayMonFull": "Monday",
+  "weekdayTueFull": "Tuesday",
+  "weekdayWedFull": "Wednesday",
+  "weekdayThuFull": "Thursday",
+  "weekdayFriFull": "Friday",
+  "weekdaySatFull": "Saturday",
+  "weekdaySunFull": "Sunday",
+
+  "exerciseTechniqueTooltip": "Exercise technique",
+  "exerciseTipsTitle": "TECHNIQUE TIPS",
+  "exerciseCommonMistakeTitle": "COMMON MISTAKE",
+
+  "learnCardTitle": "Learn the Basics",
+  "learnCardSubtitle": "Tips on progression, rest, RPE and more",
+  "trainingArticlesScreenEyebrow": "LEARN",
+  "trainingArticlesScreenTitle": "Training Articles",
+
+  "todayWorkoutStartButton": "START",
+
+  "restDayTitle": "Rest day 😌",
+  "restDaySubtitle": "You've already completed today's plan.",
+  "restDayNextWorkoutLabel": "Next workout",
+  "restDayViewWorkoutButton": "VIEW WORKOUT",
+  "restDayStartEarlyButton": "Start workout early",
+
+  "noProgramTitle": "No active program",
+  "noProgramSubtitle": "Set up a training program and Home will show you what to do today.",
+  "noProgramSetupButton": "Set up a program",
+
+  "onboardingWelcomeTitle": "Welcome to BODYRON",
+  "onboardingWelcomeSubtitle": "Train. Track. Get stronger.",
+  "onboardingStartButton": "GET STARTED",
+
+  "onboardingGoalTitle": "What's your goal?",
+  "onboardingGoalMuscleGain": "Build muscle",
+  "onboardingGoalStrength": "Get stronger",
+  "onboardingGoalWeightLoss": "Lose weight",
+  "onboardingGoalMaintenance": "Stay in shape",
+  "onboardingContinueButton": "CONTINUE",
+
+  "onboardingFrequencyTitle": "How many times a week do you train?",
+  "onboardingFrequencyOptionLabel": "{count, plural, one{{count}x a week} other{{count}x a week}}",
+  "@onboardingFrequencyOptionLabel": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+
+  "onboardingLevelTitle": "What's your experience level?",
+  "onboardingLevelBeginner": "Beginner",
+  "onboardingLevelBeginnerHint": "Under 6 months",
+  "onboardingLevelIntermediate": "Intermediate",
+  "onboardingLevelIntermediateHint": "6 months – 2 years",
+  "onboardingLevelAdvanced": "Advanced",
+  "onboardingLevelAdvancedHint": "2+ years",
+
+  "onboardingReadyTitle": "Your program is ready",
+  "onboardingReadyRestDayLabel": "Rest",
+  "onboardingReadyStartButton": "START FIRST WORKOUT",
+
+  "completionTitle": "WORKOUT COMPLETE 🔥",
+  "completionSubtitle": "Great work!",
+  "completionDurationLabel": "TIME",
+  "completionVolumeLabel": "VOLUME",
+  "completionSetsLabel": "SETS",
+  "completionNewPrBadge": "🏆 New PR",
+  "completionMotivationLine": "You're getting stronger. Your {exercise} working weight is up {delta} kg.",
+  "@completionMotivationLine": {
+    "placeholders": {
+      "exercise": {"type": "String"},
+      "delta": {"type": "String"}
+    }
+  },
+  "completionDoneButton": "DONE"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../data/locale_store.dart';
 import '../../data/theme_store.dart';
 import '../../data/workout_session_store.dart';
 import '../../l10n/app_localizations.dart';
@@ -7,15 +8,17 @@ import '../../theme/app_palette.dart';
 import '../workout/rest_duration_sheet.dart';
 
 /// Секция Profile: настройки приложения — дефолтная длительность отдыха,
-/// единицы веса (kg сейчас зафиксирован, lb пока неактивен) и тема.
+/// единицы веса (kg сейчас зафиксирован, lb пока неактивен), тема и язык.
 class SettingsSection extends StatelessWidget {
   final WorkoutSessionStore workoutStore;
   final ThemeStore themeStore;
+  final LocaleStore localeStore;
 
   const SettingsSection({
     super.key,
     required this.workoutStore,
     required this.themeStore,
+    required this.localeStore,
   });
 
   @override
@@ -146,6 +149,57 @@ class SettingsSection extends StatelessWidget {
                         ],
                         selected: {themeStore.mode},
                         onSelectionChanged: (selection) => themeStore.setMode(selection.first),
+                        showSelectedIcon: false,
+                        style: SegmentedButton.styleFrom(
+                          selectedBackgroundColor: colors.accent,
+                          selectedForegroundColor: Colors.white,
+                          foregroundColor: colors.textSecondary,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          Divider(height: 1, color: colors.cardBorder, indent: 18, endIndent: 18),
+          Padding(
+            padding: const EdgeInsets.all(18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.translate, size: 20, color: colors.textSecondary),
+                    const SizedBox(width: 14),
+                    Text(
+                      l10n.languageSettingTitle,
+                      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                ListenableBuilder(
+                  listenable: localeStore,
+                  builder: (context, _) {
+                    // localeStore.locale is null until the user picks explicitly
+                    // (meaning "follow system") — there's no fourth "System"
+                    // segment here, so the selected chip reflects whichever
+                    // locale MaterialApp actually resolved to right now.
+                    final active = Locale(Localizations.localeOf(context).languageCode);
+
+                    return SizedBox(
+                      width: double.infinity,
+                      // Названия языков — эндонимы: показываются как есть на
+                      // любом языке интерфейса, поэтому не идут через l10n.
+                      child: SegmentedButton<Locale>(
+                        segments: const [
+                          ButtonSegment(value: Locale('en'), label: Text('English')),
+                          ButtonSegment(value: Locale('ru'), label: Text('Русский')),
+                          ButtonSegment(value: Locale('uz'), label: Text('Oʻzbek')),
+                        ],
+                        selected: {active},
+                        onSelectionChanged: (selection) => localeStore.setLocale(selection.first),
                         showSelectedIcon: false,
                         style: SegmentedButton.styleFrom(
                           selectedBackgroundColor: colors.accent,

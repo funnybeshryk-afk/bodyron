@@ -2,28 +2,37 @@ import 'package:flutter/material.dart';
 
 import '../data/body_weight_store.dart';
 import '../data/dashboard_mock_data.dart';
+import '../data/training_program_store.dart';
 import '../data/workout_session_store.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/dashboard_mock_l10n.dart';
 import '../l10n/relative_date_l10n.dart';
+import '../l10n/workout_name_l10n.dart';
+import '../models/training_program.dart';
 import '../widgets/dashboard/body_weight_card.dart';
 import '../widgets/dashboard/dashboard_header.dart';
 import '../widgets/dashboard/last_workout_card.dart';
-import '../widgets/dashboard/start_workout_card.dart';
+import '../widgets/dashboard/learn_card.dart';
 import '../widgets/dashboard/today_workout_card.dart';
 import '../widgets/dashboard/weekly_progress_card.dart';
 import '../widgets/profile/add_body_weight_dialog.dart';
 import '../widgets/section_title.dart';
+import 'training_articles_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   final WorkoutSessionStore store;
   final BodyWeightStore bodyWeightStore;
-  final VoidCallback onStartWorkout;
+  final TrainingProgramStore trainingProgramStore;
+  final void Function(TrainingProgramDay day) onStartProgramDay;
+  final VoidCallback onSetupProgram;
 
   const DashboardScreen({
     super.key,
     required this.store,
     required this.bodyWeightStore,
-    required this.onStartWorkout,
+    required this.trainingProgramStore,
+    required this.onStartProgramDay,
+    required this.onSetupProgram,
   });
 
   @override
@@ -31,33 +40,56 @@ class DashboardScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return ListenableBuilder(
-      listenable: store,
+      listenable: Listenable.merge([store, trainingProgramStore]),
       builder: (context, _) {
         final lastCompleted = store.history.isEmpty ? null : store.history.last;
+        // Плейсхолдеры "Yesterday"/"Push Day"/"Pull Day" не могут быть
+        // частью const-моков — это вывод, а не данные, поэтому локализуются
+        // здесь, где есть context.
         final lastWorkout = lastCompleted == null
-            ? DashboardMockData.lastWorkout
+            ? LastWorkoutSummary(
+                name: DashboardMockData.lastWorkout.name.displayMockWorkoutName(context),
+                whenLabel: l10n.relativeYesterday,
+                durationMinutes: DashboardMockData.lastWorkout.durationMinutes,
+                volumeKg: DashboardMockData.lastWorkout.volumeKg,
+                prCount: DashboardMockData.lastWorkout.prCount,
+              )
             : LastWorkoutSummary(
-                name: lastCompleted.name,
+                name: lastCompleted.name.displayWorkoutName(context),
                 whenLabel: lastCompleted.date.relativeLabel(context),
                 durationMinutes: lastCompleted.durationMinutes,
                 volumeKg: lastCompleted.volumeKg,
                 prCount: lastCompleted.prCount,
               );
+        final weeklyProgress = WeeklyProgressStat(
+          dayLabels: [
+            l10n.weekdayMonShort,
+            l10n.weekdayTueShort,
+            l10n.weekdayWedShort,
+            l10n.weekdayThuShort,
+            l10n.weekdayFriShort,
+            l10n.weekdaySatShort,
+            l10n.weekdaySunShort,
+          ],
+          completedDays: DashboardMockData.weeklyProgress.completedDays,
+          workoutsDone: DashboardMockData.weeklyProgress.workoutsDone,
+          workoutsGoal: DashboardMockData.weeklyProgress.workoutsGoal,
+        );
 
         return SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const DashboardHeader(),
                 const SizedBox(height: 8),
-                StartWorkoutCard(onStart: onStartWorkout),
-                const SizedBox(height: 8),
                 SectionTitle(title: l10n.todayWorkoutLabel),
                 const SizedBox(height: 6),
-                const TodayWorkoutCard(
-                  workout: DashboardMockData.todayWorkout,
+                TodayWorkoutCard(
+                  trainingProgramStore: trainingProgramStore,
+                  onStartProgramDay: onStartProgramDay,
+                  onSetupProgram: onSetupProgram,
                 ),
                 const SizedBox(height: 8),
                 SectionTitle(title: l10n.sectionLastWorkout),
@@ -76,8 +108,13 @@ class DashboardScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 SectionTitle(title: l10n.weeklyProgressLabel),
                 const SizedBox(height: 6),
-                const WeeklyProgressCard(
-                  stat: DashboardMockData.weeklyProgress,
+                WeeklyProgressCard(stat: weeklyProgress),
+                const SizedBox(height: 6),
+                LearnCard(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const TrainingArticlesScreen()),
+                  ),
                 ),
               ],
             ),

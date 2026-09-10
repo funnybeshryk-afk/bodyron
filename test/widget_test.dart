@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
+import 'package:bodyron/data/locale_store.dart';
 import 'package:bodyron/data/theme_store.dart';
+import 'package:bodyron/data/training_program_store.dart';
 import 'package:bodyron/main.dart';
 
 void main() {
@@ -13,14 +15,24 @@ void main() {
     databaseFactory = databaseFactoryFfi;
   });
 
-  testWidgets('Dashboard shows BODYRON header and Start Workout action', (
+  testWidgets('Dashboard shows BODYRON header and no-program setup action', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(BodyronApp(themeStore: ThemeStore()));
+    // showOnboarding: false — this test exercises Dashboard directly, not
+    // the mandatory onboarding gate (see main.dart for the real "new user
+    // without history" decision).
+    await tester.pumpWidget(BodyronApp(
+      themeStore: ThemeStore(),
+      localeStore: LocaleStore(),
+      trainingProgramStore: TrainingProgramStore(),
+      showOnboarding: false,
+    ));
     await tester.pumpAndSettle();
 
     expect(find.text('BODYRON'), findsOneWidget);
-    expect(find.text('Start Workout'), findsOneWidget);
+    // With no active program, Home shows the soft setup state instead of
+    // the old mock card — see TodayWorkoutCard's no-program state.
+    expect(find.text('No active program'), findsOneWidget);
     expect(find.byIcon(Icons.home_rounded), findsOneWidget);
   });
 }

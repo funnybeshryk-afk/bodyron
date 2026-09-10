@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:bodyron/data/body_weight_store.dart';
+import 'package:bodyron/data/training_program_store.dart';
 import 'package:bodyron/data/workout_session_store.dart';
 import 'package:bodyron/l10n/app_localizations.dart';
 import 'package:bodyron/screens/dashboard_screen.dart';
@@ -55,7 +56,9 @@ void main() {
           body: DashboardScreen(
             store: WorkoutSessionStore(),
             bodyWeightStore: BodyWeightStore(),
-            onStartWorkout: () {},
+            trainingProgramStore: TrainingProgramStore(),
+            onStartProgramDay: (_) {},
+            onSetupProgram: () {},
           ),
         ),
       ),

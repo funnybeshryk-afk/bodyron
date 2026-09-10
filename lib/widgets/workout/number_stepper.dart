@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_palette.dart';
 
-/// Компактный степпер [-] значение [+] для веса/повторений.
+/// Степпер [-] значение [+] для веса/повторений. [large] — увеличенная
+/// версия для фокусного текущего подхода в пошаговом режиме Тренировки
+/// (см. CurrentSetEditor) — обычный размер используется в компактных
+/// строках уже выполненных подходов (см. SetEntryRow).
 class NumberStepper extends StatelessWidget {
   final double value;
   final double step;
   final int decimals;
   final bool enabled;
   final double min;
+  final bool large;
   final ValueChanged<double> onChanged;
 
   const NumberStepper({
@@ -19,15 +23,23 @@ class NumberStepper extends StatelessWidget {
     this.decimals = 1,
     this.enabled = true,
     this.min = 0,
+    this.large = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final buttonSize = large ? 44.0 : 26.0;
+    final iconSize = large ? 22.0 : 14.0;
+    final valueWidth = large ? 76.0 : 44.0;
+    final fontSize = large ? 22.0 : 13.0;
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         _StepIconButton(
           icon: Icons.remove,
+          size: buttonSize,
+          iconSize: iconSize,
           onTap: enabled
               ? () {
                   final next = value - step;
@@ -36,15 +48,17 @@ class NumberStepper extends StatelessWidget {
               : null,
         ),
         SizedBox(
-          width: 44,
+          width: valueWidth,
           child: Text(
             value.toStringAsFixed(decimals),
             textAlign: TextAlign.center,
-            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
+            style: TextStyle(fontWeight: FontWeight.w800, fontSize: fontSize),
           ),
         ),
         _StepIconButton(
           icon: Icons.add,
+          size: buttonSize,
+          iconSize: iconSize,
           onTap: enabled ? () => onChanged(value + step) : null,
         ),
       ],
@@ -54,10 +68,14 @@ class NumberStepper extends StatelessWidget {
 
 class _StepIconButton extends StatelessWidget {
   final IconData icon;
+  final double size;
+  final double iconSize;
   final VoidCallback? onTap;
 
   const _StepIconButton({
     required this.icon,
+    required this.size,
+    required this.iconSize,
     this.onTap,
   });
 
@@ -70,8 +88,8 @@ class _StepIconButton extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(8),
       child: Container(
-        width: 26,
-        height: 26,
+        width: size,
+        height: size,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: colors.card,
@@ -79,7 +97,7 @@ class _StepIconButton extends StatelessWidget {
         ),
         child: Icon(
           icon,
-          size: 14,
+          size: iconSize,
           color: disabled ? colors.textFaint : colors.textSecondary,
         ),
       ),
