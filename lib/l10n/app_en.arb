@@ -404,5 +404,8 @@
   "curatedProgramFullBodyName": "Advanced Full Body",
   "curatedProgramFullBodyDescription": "More exercises per session — for experienced lifters who train efficiently.",
   "curatedProgramArmsName": "Arms/Shoulders Specialization",
-  "curatedProgramArmsDescription": "A base split plus a dedicated day for lagging arms and shoulders."
+  "curatedProgramArmsDescription": "A base split plus a dedicated day for lagging arms and shoulders.",
+
+  "todayWorkoutChangeButton": "Choose a different workout",
+  "changeWorkoutSheetTitle": "Choose a workout"
 }

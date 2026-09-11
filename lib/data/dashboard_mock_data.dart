@@ -43,11 +43,4 @@ class DashboardMockData {
     volumeKg: 4820,
     prCount: 1,
   );
-
-  static const weeklyProgress = WeeklyProgressStat(
-    dayLabels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-    completedDays: [true, true, false, true, false, false, false],
-    workoutsDone: 3,
-    workoutsGoal: 5,
-  );
 }

@@ -805,4 +805,10 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get curatedProgramArmsDescription =>
       'Базовый сплит плюс отдельный день на отстающие руки и плечи.';
+
+  @override
+  String get todayWorkoutChangeButton => 'Выбрать другую тренировку';
+
+  @override
+  String get changeWorkoutSheetTitle => 'Выбери тренировку';
 }

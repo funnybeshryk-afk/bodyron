@@ -1467,6 +1467,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A base split plus a dedicated day for lagging arms and shoulders.'**
   String get curatedProgramArmsDescription;
+
+  /// No description provided for @todayWorkoutChangeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a different workout'**
+  String get todayWorkoutChangeButton;
+
+  /// No description provided for @changeWorkoutSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a workout'**
+  String get changeWorkoutSheetTitle;
 }
 
 class _AppLocalizationsDelegate

@@ -786,4 +786,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get curatedProgramArmsDescription =>
       'A base split plus a dedicated day for lagging arms and shoulders.';
+
+  @override
+  String get todayWorkoutChangeButton => 'Choose a different workout';
+
+  @override
+  String get changeWorkoutSheetTitle => 'Choose a workout';
 }

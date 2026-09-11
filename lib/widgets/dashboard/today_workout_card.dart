@@ -34,7 +34,12 @@ class TodayWorkoutCard extends StatelessWidget {
 
     final today = trainingProgramStore.todayDay()!;
     if (!today.isRestDay) {
-      return _TrainingDayCard(day: today, onStart: () => onStartProgramDay(today));
+      return _TrainingDayCard(
+        program: program,
+        day: today,
+        onStart: () => onStartProgramDay(today),
+        onPickDifferentDay: onStartProgramDay,
+      );
     }
 
     final nextDay = trainingProgramStore.nextTrainingDay();
@@ -51,10 +56,17 @@ int _estimateMinutes(TrainingProgramDay day) {
 }
 
 class _TrainingDayCard extends StatelessWidget {
+  final TrainingProgram program;
   final TrainingProgramDay day;
   final VoidCallback onStart;
+  final void Function(TrainingProgramDay day) onPickDifferentDay;
 
-  const _TrainingDayCard({required this.day, required this.onStart});
+  const _TrainingDayCard({
+    required this.program,
+    required this.day,
+    required this.onStart,
+    required this.onPickDifferentDay,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +131,21 @@ class _TrainingDayCard extends StatelessWidget {
                   const SizedBox(width: 8),
                   const Icon(Icons.arrow_forward, size: 18),
                 ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Center(
+            child: TextButton(
+              onPressed: () => _showChangeWorkoutSheet(
+                context: context,
+                program: program,
+                currentDay: day,
+                onSelect: onPickDifferentDay,
+              ),
+              child: Text(
+                l10n.todayWorkoutChangeButton,
+                style: const TextStyle(fontWeight: FontWeight.w700, color: Colors.white70),
               ),
             ),
           ),
@@ -299,6 +326,151 @@ class _NoProgramCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// "Выбрать другую тренировку" на карточке тренировочного дня — точечная
+/// разовая подмена дня программы для ЭТОЙ сессии (см. Phase 1
+/// follow-up ТЗ): список всех тренировочных дней активной программы,
+/// выбор любого из них вызывает [onSelect] (тот же [onStartProgramDay],
+/// что и обычная кнопка "НАЧАТЬ") — расписание на будущие дни/недели не
+/// меняется, потому что [WorkoutSessionStore.applyProgramDay] не трогает
+/// active_program_json, только текущую активную тренировку.
+Future<void> _showChangeWorkoutSheet({
+  required BuildContext context,
+  required TrainingProgram program,
+  required TrainingProgramDay currentDay,
+  required void Function(TrainingProgramDay day) onSelect,
+}) {
+  final colors = context.colors;
+  final trainingDays = program.days.where((d) => !d.isRestDay).toList();
+
+  return showModalBottomSheet(
+    context: context,
+    backgroundColor: colors.card,
+    isScrollControlled: true,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+    ),
+    builder: (sheetContext) {
+      final l10n = AppLocalizations.of(sheetContext)!;
+
+      return SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                l10n.changeWorkoutSheetTitle,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+              ),
+              const SizedBox(height: 16),
+              for (final day in trainingDays)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: _DayOptionTile(
+                    day: day,
+                    isToday: day.dayOfWeek == currentDay.dayOfWeek,
+                    onTap: () {
+                      Navigator.pop(sheetContext);
+                      onSelect(day);
+                    },
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
+class _DayOptionTile extends StatelessWidget {
+  final TrainingProgramDay day;
+  final bool isToday;
+  final VoidCallback onTap;
+
+  const _DayOptionTile({
+    required this.day,
+    required this.isToday,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final colors = context.colors;
+
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          color: colors.cardAlt,
+          borderRadius: BorderRadius.circular(16),
+          border: isToday ? Border.all(color: colors.accent, width: 1.5) : null,
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        day.dayOfWeek.weekdayFullName(context),
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: colors.textMuted,
+                        ),
+                      ),
+                      if (isToday) ...[
+                        const SizedBox(width: 6),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                          decoration: BoxDecoration(
+                            color: colors.accent,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Text(
+                            l10n.relativeToday,
+                            style: const TextStyle(
+                              fontSize: 9.5,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    day.dayName.displayWorkoutName(context),
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.todayWorkoutSummary(
+                      day.muscleGroups.map((m) => m.display(context)).join(' • '),
+                      day.exercises.length,
+                      _estimateMinutes(day),
+                    ),
+                    style: TextStyle(fontSize: 12, color: colors.textMuted),
+                  ),
+                ],
+              ),
+            ),
+            Icon(Icons.chevron_right, color: colors.textMuted),
+          ],
+        ),
       ),
     );
   }

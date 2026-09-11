@@ -589,6 +589,21 @@ class WorkoutSessionStore extends ChangeNotifier {
     return result;
   }
 
+  /// По одному булю на каждый день ТЕКУЩЕЙ календарной недели (индекс 0 =
+  /// понедельник .. 6 = воскресенье) — был ли в этот день хотя бы один
+  /// завершённый воркаут. Источник для карточки "Прогресс за неделю" на
+  /// Home (раньше — статический мок, см. DashboardMockData).
+  List<bool> completedDaysInCurrentWeek() {
+    final weekStart = _startOfWeek(DateTime.now());
+    final result = List<bool>.filled(7, false);
+    for (final workout in history) {
+      final day = DateTime(workout.date.year, workout.date.month, workout.date.day);
+      final offset = day.difference(weekStart).inDays;
+      if (offset >= 0 && offset < 7) result[offset] = true;
+    }
+    return result;
+  }
+
   DateTime _startOfWeek(DateTime date) {
     final day = DateTime(date.year, date.month, date.day);
     return day.subtract(Duration(days: day.weekday - 1));

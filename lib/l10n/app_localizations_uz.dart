@@ -766,4 +766,10 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get curatedProgramArmsDescription =>
       'Asosiy split ustiga ortda qolgan qoʻl va yelka uchun alohida kun.';
+
+  @override
+  String get todayWorkoutChangeButton => 'Boshqa mashgʻulotni tanlash';
+
+  @override
+  String get changeWorkoutSheetTitle => 'Mashgʻulotni tanlash';
 }

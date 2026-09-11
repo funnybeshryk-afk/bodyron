@@ -61,6 +61,11 @@ class DashboardScreen extends StatelessWidget {
                 volumeKg: lastCompleted.volumeKg,
                 prCount: lastCompleted.prCount,
               );
+        // Реальные данные — завершённые тренировки на этой неделе из
+        // истории, цель — частота активной программы (см.
+        // WorkoutSessionStore.completedDaysInCurrentWeek). Без активной
+        // программы цель по умолчанию — 3 тренировки в неделю.
+        final completedDays = store.completedDaysInCurrentWeek();
         final weeklyProgress = WeeklyProgressStat(
           dayLabels: [
             l10n.weekdayMonShort,
@@ -71,9 +76,9 @@ class DashboardScreen extends StatelessWidget {
             l10n.weekdaySatShort,
             l10n.weekdaySunShort,
           ],
-          completedDays: DashboardMockData.weeklyProgress.completedDays,
-          workoutsDone: DashboardMockData.weeklyProgress.workoutsDone,
-          workoutsGoal: DashboardMockData.weeklyProgress.workoutsGoal,
+          completedDays: completedDays,
+          workoutsDone: completedDays.where((done) => done).length,
+          workoutsGoal: trainingProgramStore.activeProgram?.frequency ?? 3,
         );
 
         return SafeArea(

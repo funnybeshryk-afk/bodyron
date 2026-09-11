@@ -282,5 +282,8 @@
   "curatedProgramFullBodyName": "Full Body Ilg'or",
   "curatedProgramFullBodyDescription": "Har mashgʻulotda koʻproq mashq — tajribali sportchilar uchun.",
   "curatedProgramArmsName": "Qoʻl/Yelka Ixtisoslashuvi",
-  "curatedProgramArmsDescription": "Asosiy split ustiga ortda qolgan qoʻl va yelka uchun alohida kun."
+  "curatedProgramArmsDescription": "Asosiy split ustiga ortda qolgan qoʻl va yelka uchun alohida kun.",
+
+  "todayWorkoutChangeButton": "Boshqa mashgʻulotni tanlash",
+  "changeWorkoutSheetTitle": "Mashgʻulotni tanlash"
 }

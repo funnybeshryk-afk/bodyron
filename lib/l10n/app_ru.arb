@@ -282,5 +282,8 @@
   "curatedProgramFullBodyName": "Full Body Продвинутый",
   "curatedProgramFullBodyDescription": "Больше упражнений за тренировку — для опытных, кто тренируется эффективно.",
   "curatedProgramArmsName": "Руки/Плечи Специализация",
-  "curatedProgramArmsDescription": "Базовый сплит плюс отдельный день на отстающие руки и плечи."
+  "curatedProgramArmsDescription": "Базовый сплит плюс отдельный день на отстающие руки и плечи.",
+
+  "todayWorkoutChangeButton": "Выбрать другую тренировку",
+  "changeWorkoutSheetTitle": "Выбери тренировку"
 }
